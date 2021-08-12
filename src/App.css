@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+html, :root {
+  background-color: rgb(49, 49, 112);
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.MuiImageListItem-item {
+  width: 400px;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.MuiImageListItem-root {
+  margin-bottom: 50px;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.MuiImageList-root {
+  padding: 0;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
 }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(4, 38, 112);
+  border-radius: 10px;
+}
+
+.MuiGrid-spacing-xs-2 {
+  justify-content: center;
+}
+
+.MuiListItem-gutters {
+  text-align: center;
+  padding: 0;
+}
+
+.kart {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.MuiImageListItem-imgFullHeight {
+  width: 800px;
+}
+
+.homeContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.imggg {
+  height: 100%;
+  width: 100%;
+  
+}
+
+.fadeee {
+  animation: fadein 8s;
+    -moz-animation: fadein 8s; 
+    -webkit-animation: fadein 8s; 
+    -o-animation: fadein 8s; 
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.fadee {
+  animation: fadein 8s;
+    -moz-animation: fadein 8s; 
+    -webkit-animation: fadein 8s; 
+    -o-animation: fadein 8s; 
+
+    
+}
+
+.total {
+  width: '100%';
+      max-Width: 500px;
+      background-Color: grey;
+      padding: 0;
+      margin-left: 30%;
+      text-align: center;
+}
+
+
+
