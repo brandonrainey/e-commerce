@@ -50,61 +50,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Cpus(props) {
   const classes = useStyles();
 
-  const itemData = [
-    {
-      img: Cpu1,
-      title: 'card',
-      price: 33,
-      num: () => {props.setCountCpu1(props.countCpu1 + 1)
-                    },
-    },
-    {
-     img: Cpu2,
-     title: 'card2',
-     price: 600,
-     num: () => props.setCountCpu2(props.countCpu2 + 1),
-    },
-    {
-        img: Cpu3,
-        title: 'card3',
-        price: 42,
-        num: () => props.setCountCpu3(props.countCpu3 + 1),
-       },
-       {
-        img: Cpu4,
-        title: 'card4',
-        price: 150,
-        num: () => props.setCountCpu4(props.countCpu4 + 1),
-       },
-
-       {
-        img: Cpu5,
-        title: 'card5',
-        price: 188,
-        num: () => props.setCountCpu5(props.countCpu5 + 1),
-       },
-       {
-        img: Cpu6,
-        title: 'card6',
-        price: 239,
-        num: () => props.setCountCpu6(props.countCpu6 + 1),
-       },
-
-       {
-        img: Cpu7,
-        title: 'card7',
-        price: 511,
-        num: () => props.setCountCpu7(props.countCpu7 + 1),
-       },
-       {
-        img: Cpu8,
-        title: 'card8',
-        price: 375,
-        num: () => props.setCountCpu8(props.countCpu8 + 1),
-       },
-
-     
-  ];
+  
 
   
   useEffect(() => {
@@ -119,7 +65,7 @@ export default function Cpus(props) {
         <ImageListItem key="Subheader" cols={2} style={{ height: 'auto' }}>
           <ListSubheader component="div">Items</ListSubheader>
         </ImageListItem>
-        {itemData.map((item) => (
+        {props.myCpuItems.map((item) => (
           <ImageListItem key={item.img} >
             <img src={item.img} alt={item.title} />
             <ImageListItemBar

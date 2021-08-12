@@ -110,8 +110,10 @@ export default function SearchAppBar(props) {
 
   const getSearchTerm = (e) => {
     props.searchKeyword(e.target.value)
-    
+    props.searchKeywordCpu(e.target.value)
   }
+
+  
 
   return (
     <div className={classes.root}>

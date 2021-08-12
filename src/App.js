@@ -119,68 +119,73 @@ const classes = useStyles();
       price: 420,
       num: () => setCount8(count8 + 1),
      },
+     ])
+
+  const [myCpuItems, setMyCpuItems] = useState([{
+    info: 'cpu',
+    img: Cpu1,
+    title: 'card',
+    price: 33,
+    num: () => {setCountCpu1(countCpu1 + 1)
+                  },
+  },
+  {
+    info: 'cpu',
+   img: Cpu2,
+   title: 'card2',
+   price: 600,
+   num: () => setCountCpu2(countCpu2 + 1),
+  },
+  {
+    info: 'cpu',
+      img: Cpu3,
+      title: 'card3',
+      price: 42,
+      num: () => setCountCpu3(countCpu3 + 1),
+     },
      {
       info: 'cpu',
-      img: Cpu1,
-      title: 'card',
-      price: 33,
-      num: () => {setCountCpu1(countCpu1 + 1)
-                    },
-    },
-    {
-      info: 'cpu',
-     img: Cpu2,
-     title: 'card2',
-     price: 600,
-     num: () => setCountCpu2(countCpu2 + 1),
-    },
-    {
-      info: 'cpu',
-        img: Cpu3,
-        title: 'card3',
-        price: 42,
-        num: () => setCountCpu3(countCpu3 + 1),
-       },
-       {
-        info: 'cpu',
-        img: Cpu4,
-        title: 'card4',
-        price: 150,
-        num: () => setCountCpu4(countCpu4 + 1),
-       },
+      img: Cpu4,
+      title: 'card4',
+      price: 150,
+      num: () => setCountCpu4(countCpu4 + 1),
+     },
 
-       {
-        info: 'cpu',
-        img: Cpu5,
-        title: 'card5',
-        price: 188,
-        num: () => setCountCpu5(countCpu5 + 1),
-       },
-       {
-        info: 'cpu',
-        img: Cpu6,
-        title: 'card6',
-        price: 239,
-        num: () => setCountCpu6(countCpu6 + 1),
-       },
+     {
+      info: 'cpu',
+      img: Cpu5,
+      title: 'card5',
+      price: 188,
+      num: () => setCountCpu5(countCpu5 + 1),
+     },
+     {
+      info: 'cpu',
+      img: Cpu6,
+      title: 'card6',
+      price: 239,
+      num: () => setCountCpu6(countCpu6 + 1),
+     },
 
-       {
-        info: 'cpu',
-        img: Cpu7,
-        title: 'card7',
-        price: 511,
-        num: () => setCountCpu7(countCpu7 + 1),
-       },
-       {
-        info: 'cpu',
-        img: Cpu8,
-        title: 'card8',
-        price: 375,
-        num: () => setCountCpu8(countCpu8 + 1),
-       },])
+     {
+      info: 'cpu',
+      img: Cpu7,
+      title: 'card7',
+      price: 511,
+      num: () => setCountCpu7(countCpu7 + 1),
+     },
+     {
+      info: 'cpu',
+      img: Cpu8,
+      title: 'card8',
+      price: 375,
+      num: () => setCountCpu8(countCpu8 + 1),
+     },])
+
 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+
+  const [searchResultsCpu, setSearchResultsCpu] = useState([]);
 
   const [countArray, setCountArray] = useState([count1, count2, count3, count4, count5, count6, count7, count8]);
 
@@ -203,6 +208,19 @@ const searchHandler = (searchTerm) => {
     setSearchResults(myItems)
   }
 };
+
+const searchHandlerCpu = (searchTerm) => {
+  setSearchTerm(searchTerm);
+  if ( searchTerm !== '') {
+    const newCpuItems = myCpuItems.filter((item) => {
+      return Object.values(item).join(' ').toLowerCase().includes(searchTerm.toLowerCase());
+    }); 
+    setSearchResultsCpu(newCpuItems);
+  }
+  else {
+    setSearchResultsCpu(myCpuItems)
+  }
+};
     
 
   return (
@@ -217,6 +235,7 @@ const searchHandler = (searchTerm) => {
       <PrimarySearchAppBar countTotal={countTotal}
         searchTerm={searchTerm}
         searchKeyword={searchHandler}
+        searchKeywordCpu={searchHandlerCpu}
       />
         <Switch>
           <Route exact path='/' component={HomePage}/>
@@ -244,7 +263,7 @@ const searchHandler = (searchTerm) => {
                 setCountArray={setCountArray}
                 searchTerm={searchTerm}
                 searchKeyword={searchHandler}
-                myItems={myItems}
+                myItems={searchTerm.length < 1 ? myItems : searchResults}
               />
             )}/>
             <Route exact path='/cart' render={(props) => (
@@ -316,6 +335,9 @@ const searchHandler = (searchTerm) => {
                 setCountCpu8={setCountCpu8}
                 countCpuArray={countCpuArray}
                 setCountCpuArray={setCountCpuArray}
+                myCpuItems={searchTerm.length < 1 ? myCpuItems : searchResultsCpu}
+                searchTerm={searchTerm}
+                searchKeyword={searchHandlerCpu}
               />
               
             )}/>
