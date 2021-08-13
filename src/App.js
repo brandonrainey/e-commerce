@@ -32,6 +32,24 @@ import Cpu6 from './components/cpu6.png';
 import Cpu7 from './components/cpu7.png';
 import Cpu8 from './components/cpu8.png';
 
+import Card1Popup from './components/card1Popup';
+import Card2Popup from './components/card2Popup';
+import Card3Popup from './components/card3Popup';
+import Card4Popup from './components/card4Popup';
+import Card5Popup from './components/card5Popup';
+import Card6Popup from './components/card6Popup';
+import Card7Popup from './components/card7Popup';
+import Card8Popup from './components/card8Popup';
+
+import Cpu1Popup from './components/cpu1Popup';
+import Cpu2Popup from './components/cpu2Popup';
+import Cpu3Popup from './components/cpu3Popup';
+import Cpu4Popup from './components/cpu4Popup';
+import Cpu5Popup from './components/cpu5Popup';
+import Cpu6Popup from './components/cpu6Popup';
+import Cpu7Popup from './components/cpu7Popup';
+import Cpu8Popup from './components/cpu8Popup';
+
 const useStyles = makeStyles({
   box: {
     backgroundColor: 'aqua',
@@ -61,124 +79,142 @@ const classes = useStyles();
   const [countCpu8, setCountCpu8] = useState(0);
 
   const [myItems, setMyItems] = useState([ {
-    info: 'card',
+    
     img: Gcard1,
-    title: 'card',
+    title: 'Cool Card Uno',
     price: 100,
-    num: () => {setCount1(count1 + 1)
-                  },
+    num: () => {setCount1(count1 + 1)},
+    info: <Card1Popup />,
   },
+  
   {
-    info: 'card',
+    
    img: Gcard2,
-   title: 'card2',
+   title: 'Monsterous Fans',
    price: 45,
    num: () => setCount2(count2 + 1),
+   info: <Card2Popup />,
   },
   {
-    info: 'card',
+    
       img: Gcard3,
       title: 'card3',
       price: 78,
       num: () => setCount3(count3 + 1),
+      info: <Card3Popup />,
      },
      {
-      info: 'card',
+      
       img: Gcard4,
       title: 'card4',
       price: 98,
       num: () => setCount4(count4 + 1),
+      info: <Card4Popup />,
      },
 
      {
-      info: 'card',
+      
       img: Gcard5,
       title: 'card5',
       price: 300,
       num: () => setCount5(count5 + 1),
+      info: <Card5Popup />,
      },
      {
-      info: 'card',
+      
       img: Gcard6,
       title: 'card6',
       price: 222,
       num: () => setCount6(count6 + 1),
+      info: <Card6Popup />,
      },
 
      {
-      info: 'card',
+      
       img: Gcard7,
       title: 'card7',
       price: 443,
       num: () => setCount7(count7 + 1),
+      info: <Card7Popup />,
      },
      {
-      info: 'card',
+      
       img: Gcard8,
       title: 'card8',
       price: 420,
       num: () => setCount8(count8 + 1),
+      info: <Card8Popup />,
      },
      ])
 
   const [myCpuItems, setMyCpuItems] = useState([{
-    info: 'cpu',
+    
     img: Cpu1,
-    title: 'card',
+    title: 'Super Ultra 4000',
     price: 33,
     num: () => {setCountCpu1(countCpu1 + 1)
                   },
+    info: <Cpu1Popup 
+            countCpu1={countCpu1}
+            setCountCpu1={setCountCpu1}/>,
   },
   {
-    info: 'cpu',
+    
    img: Cpu2,
    title: 'card2',
    price: 600,
    num: () => setCountCpu2(countCpu2 + 1),
+   info: <Cpu2Popup />,
   },
   {
-    info: 'cpu',
+    
       img: Cpu3,
       title: 'card3',
       price: 42,
       num: () => setCountCpu3(countCpu3 + 1),
+      info: <Cpu3Popup />,
      },
      {
-      info: 'cpu',
+      
       img: Cpu4,
       title: 'card4',
       price: 150,
       num: () => setCountCpu4(countCpu4 + 1),
+      info: <Cpu4Popup />,
      },
 
      {
-      info: 'cpu',
+      
       img: Cpu5,
       title: 'card5',
       price: 188,
       num: () => setCountCpu5(countCpu5 + 1),
+      info: <Cpu5Popup />,
      },
      {
-      info: 'cpu',
+      
       img: Cpu6,
       title: 'card6',
       price: 239,
       num: () => setCountCpu6(countCpu6 + 1),
+      info: <Cpu6Popup />,
      },
 
      {
-      info: 'cpu',
+      
       img: Cpu7,
       title: 'card7',
       price: 511,
       num: () => setCountCpu7(countCpu7 + 1),
+      info: <Cpu7Popup />,
      },
      {
-      info: 'cpu',
+      
       img: Cpu8,
       title: 'card8',
       price: 375,
       num: () => setCountCpu8(countCpu8 + 1),
+      info: <Cpu8Popup />,
      },])
 
 

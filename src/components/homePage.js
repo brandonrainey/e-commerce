@@ -1,10 +1,7 @@
 import { React, useState, useEffect, useRef } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import ImageList from '@material-ui/core/ImageList';
-import ImageListItem from '@material-ui/core/ImageListItem';
-import ImageListItemBar from '@material-ui/core/ImageListItemBar';
+
 import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+
 import { GridList, GridListTile, GridListTileBar } from '@material-ui/core';
 import {
   BrowserRouter as Router,
@@ -23,27 +20,27 @@ const imgData = [
        {
          img1: [HomeImg1, HomeImg2, HomeImg3],
         
-         title: 'Image',
+         title: ['Cards', 'Cpus', 'Other'],
          author: 'author',
          featured: true,
          cols: 2,
-         id: 1,
+         id: 0,
        },
        {
         img1: [HomeImg2, HomeImg3, HomeImg1],
-        title: 'Image',
+        title: ['Cpus', 'Other', 'Cards'],
+        author: 'author',
+        featured: false,
+        cols: 1,
+        id: 1,
+       },
+       {
+        img1: [HomeImg3, HomeImg1, HomeImg2],
+        title: ['Other', 'Cards', 'Cpus'],
         author: 'author',
         featured: false,
         cols: 1,
         id: 2,
-       },
-       {
-        img1: [HomeImg3, HomeImg1, HomeImg2],
-        title: 'Image',
-        author: 'author',
-        featured: false,
-        cols: 1,
-        id: 3,
        },
      ];
 
@@ -53,6 +50,8 @@ const imgData = [
 
 export default function HomePage() {
     const [imgNum, setImgNum] = useState(0);
+
+    
 
     const fadeImg = useRef();
 
@@ -85,6 +84,7 @@ export default function HomePage() {
         
      }, [imgNum])
 
+     
     return (
       <div className='homeContainer'>
         <GridList cellHeight={300} cols={2} style={{ width: 1000, height: 800}}>
@@ -92,20 +92,21 @@ export default function HomePage() {
             <GridListTile key={item.id} cols={item.cols || 1}>
               <img src={item.img1[imgNum]} alt={item.title} className={`imggg, ${isActive ? 'fadeee' : 'fadee'}`} ref={fadeImg} key={+new Date()}/>
               <GridListTileBar
-              title={item.title}
+              title={item.title[imgNum]}
               subtitle={item.title}
               
               actionIcon={
                 <IconButton>
                   <Link to={() => {
                     if (item.img1[imgNum] === HomeImg1) {
+
                       return '/shop'
                     } else if (item.img1[imgNum] === HomeImg2) {
-                      return '/cpus'
+                      return '/cpu'
                     } else if (item.img1[imgNum] === HomeImg3) {
                       return '/idk'
                     }
-                  }}>hello</Link>
+                  }} className='menuLinks'>Shop</Link>
                 </IconButton>
               }/>
             </GridListTile>
