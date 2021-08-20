@@ -49,11 +49,16 @@ import Cpu5Popup from './components/cpu5Popup';
 import Cpu6Popup from './components/cpu6Popup';
 import Cpu7Popup from './components/cpu7Popup';
 import Cpu8Popup from './components/cpu8Popup';
+import SimpleSnackbar from './components/mysnackbar';
+
 
 const useStyles = makeStyles({
   box: {
-    backgroundColor: 'aqua',
-    height: '100px'
+    backgroundColor: 'rgb(186 247 255)',
+    height: '100px',
+    justifyContent: 'center',
+    textAlign: 'center',
+    fontWeight: 'bold',
   }
 })
 
@@ -78,13 +83,23 @@ const classes = useStyles();
   const [countCpu7, setCountCpu7] = useState(0);
   const [countCpu8, setCountCpu8] = useState(0);
 
+  
+
+  const [cpuPopName, setCpuPopName] = useState(['Super Ultra 4000', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8',]);
+
+  
+
   const [myItems, setMyItems] = useState([ {
     
     img: Gcard1,
     title: 'Cool Card Uno',
     price: 100,
-    num: () => {setCount1(count1 + 1)},
-    info: <Card1Popup />,
+    num: () => setCount1(count1 + 1),
+    info: <Card1Popup 
+          count1={count1}
+          setCount1={setCount1}/>,
+    add: 0,
+    bar: <SimpleSnackbar />
   },
   
   {
@@ -94,6 +109,7 @@ const classes = useStyles();
    price: 45,
    num: () => setCount2(count2 + 1),
    info: <Card2Popup />,
+   add: 1,
   },
   {
     
@@ -102,6 +118,7 @@ const classes = useStyles();
       price: 78,
       num: () => setCount3(count3 + 1),
       info: <Card3Popup />,
+      add: 2,
      },
      {
       
@@ -110,6 +127,7 @@ const classes = useStyles();
       price: 98,
       num: () => setCount4(count4 + 1),
       info: <Card4Popup />,
+      add: 3,
      },
 
      {
@@ -119,6 +137,7 @@ const classes = useStyles();
       price: 300,
       num: () => setCount5(count5 + 1),
       info: <Card5Popup />,
+      add: 4,
      },
      {
       
@@ -127,6 +146,7 @@ const classes = useStyles();
       price: 222,
       num: () => setCount6(count6 + 1),
       info: <Card6Popup />,
+      add: 5,
      },
 
      {
@@ -136,6 +156,7 @@ const classes = useStyles();
       price: 443,
       num: () => setCount7(count7 + 1),
       info: <Card7Popup />,
+      add: 6,
      },
      {
       
@@ -144,6 +165,7 @@ const classes = useStyles();
       price: 420,
       num: () => setCount8(count8 + 1),
       info: <Card8Popup />,
+      add: 7,
      },
      ])
 
@@ -152,11 +174,15 @@ const classes = useStyles();
     img: Cpu1,
     title: 'Super Ultra 4000',
     price: 33,
-    num: () => {setCountCpu1(countCpu1 + 1)
-                  },
+    num: () => setCountCpu1(countCpu1 + 1),
+    undo: () => setCountCpu1(countCpu1 - 1),
+    add: 0,
     info: <Cpu1Popup 
             countCpu1={countCpu1}
-            setCountCpu1={setCountCpu1}/>,
+            setCountCpu1={setCountCpu1}
+            
+            />,
+    bar: <SimpleSnackbar />,
   },
   {
     
@@ -164,6 +190,7 @@ const classes = useStyles();
    title: 'card2',
    price: 600,
    num: () => setCountCpu2(countCpu2 + 1),
+   add: 1,
    info: <Cpu2Popup />,
   },
   {
@@ -172,6 +199,7 @@ const classes = useStyles();
       title: 'card3',
       price: 42,
       num: () => setCountCpu3(countCpu3 + 1),
+      add: 2,
       info: <Cpu3Popup />,
      },
      {
@@ -180,6 +208,7 @@ const classes = useStyles();
       title: 'card4',
       price: 150,
       num: () => setCountCpu4(countCpu4 + 1),
+      add: 3,
       info: <Cpu4Popup />,
      },
 
@@ -189,6 +218,7 @@ const classes = useStyles();
       title: 'card5',
       price: 188,
       num: () => setCountCpu5(countCpu5 + 1),
+      add: 4,
       info: <Cpu5Popup />,
      },
      {
@@ -197,6 +227,7 @@ const classes = useStyles();
       title: 'card6',
       price: 239,
       num: () => setCountCpu6(countCpu6 + 1),
+      add: 5,
       info: <Cpu6Popup />,
      },
 
@@ -206,6 +237,7 @@ const classes = useStyles();
       title: 'card7',
       price: 511,
       num: () => setCountCpu7(countCpu7 + 1),
+      add: 6,
       info: <Cpu7Popup />,
      },
      {
@@ -214,9 +246,11 @@ const classes = useStyles();
       title: 'card8',
       price: 375,
       num: () => setCountCpu8(countCpu8 + 1),
+      add: 7,
       info: <Cpu8Popup />,
      },])
 
+     const [copyCpuItems, setCopyCpuItems] = useState([...myCpuItems]);
 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -260,9 +294,9 @@ const searchHandlerCpu = (searchTerm) => {
     
 
   return (
-    <div >
+    <div className='full'>
       <Box className={classes.box}>
-        <Typography variant="h2">
+        <Typography variant="h1">
           E-COMMERCE
         </Typography>
       </Box>
@@ -374,6 +408,7 @@ const searchHandlerCpu = (searchTerm) => {
                 myCpuItems={searchTerm.length < 1 ? myCpuItems : searchResultsCpu}
                 searchTerm={searchTerm}
                 searchKeyword={searchHandlerCpu}
+                
               />
               
             )}/>

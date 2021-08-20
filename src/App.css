@@ -1,22 +1,31 @@
 html, :root {
-  background-color: rgb(49, 49, 112);
+  background-color: #1e395f;
   margin: 0;
   padding: 0;
+  height: 100%;
+  
 }
+
+
 
 .MuiImageListItem-item {
   width: 400px;
   
+  margin-left: 45px;
 }
 
 .MuiImageListItem-root {
   margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
   
 }
 
 .MuiImageList-root {
   padding: 0;
   justify-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 /* width */
@@ -32,7 +41,7 @@ html, :root {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(4, 38, 112);
+  background: rgb(84, 122, 206);
   border-radius: 10px;
 }
 
@@ -43,6 +52,7 @@ html, :root {
 .MuiListItem-gutters {
   text-align: center;
   padding: 0;
+  background-color: #d0dae8;
 }
 
 .kart {
@@ -62,6 +72,8 @@ a {
 .homeContainer {
   display: flex;
   justify-content: center;
+  margin-top: 50px;
+  overflow: hidden;
 }
 
 .imggg {
@@ -79,8 +91,8 @@ a {
 
 @keyframes fadein {
   0% { opacity: 0; }
-  50% { opacity: 1; }
-  80% { opacity: 1;}
+  30% { opacity: 1; }
+  85% { opacity: 1;}
   100% { opacity: 0; }
 }
 
@@ -95,17 +107,105 @@ a {
 
 .total {
   width: '100%';
-      max-Width: 500px;
-      background-Color: grey;
+      max-Width: 600px;
+      background-Color: #d0dae8;
       padding: 0;
-      margin-left: 30%;
+      margin-left: 34.25%;
       text-align: center;
+      font-size: 30px;
 }
 
 .menuLinks {
   text-decoration: none;
   color: white;
 }
+
+.homeLink {
+  color: white;
+  text-decoration: none;
+  align-content: center;
+}
+
+.MuiImageListItem-item {
+  width: 100%;
+}
+
+.MuiImageListItem-root {
+  align-content: center ;
+  margin-bottom: 0;
+}
+
+.MuiImageListItem-item {
+  justify-content: center ;
+  align-items: center ;
+  width: 700px;
+}
+
+.cpuImg {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+
+.MuiCard-root {
+  height: 320px !important;
+  
+}
+
+.learnMore {
+  align-self: right;
+  margin-left: auto;
+}
+
+.MuiAppBar-colorPrimary {
+  background-color: #274a7c !important;
+}
+
+.links {
+  color: white !important;
+  background-color: black;
+  text-decoration: none;
+}
+
+.MuiDialogTitle-root {
+  text-align: center;
+}
+
+.MuiListItemText-primary {
+  font-size: 20px !important;
+}
+
+.MuiListItemText-secondary {
+  font-size: 18px !important;
+}
+
+.sadImg {
+  height:auto;
+  width: 300px;
+}
+
+.hIcon {
+  margin-top: 8px;
+}
+
+.MuiListSubheader-root {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.MuiGridListTileBar-title {
+  font-size: 26px !important;
+  
+}
+
+
+
+
+
 
 
 

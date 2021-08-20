@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
@@ -7,16 +7,15 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import { Button } from '@material-ui/core';
+import TestItem from './testItem';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
-import Cpu1 from './cpu1.png';
-import Cpu2 from './cpu2.png';
-import Cpu3 from './cpu3.png';
-import Cpu4 from './cpu4.png';
-import Cpu5 from './cpu5.png';
-import Cpu6 from './cpu6.png';
-import Cpu7 from './cpu7.png';
-import Cpu8 from './cpu8.png';
-
+import SimpleSnackbar from './mysnackbar';
 
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import { Tooltip } from '@material-ui/core';
@@ -27,21 +26,33 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: 'grey',
+    backgroundColor: '#1e395f',
+    
     
     
   },
   imageList: {
     width: 1000,
     height: 800,
-    backgroundColor: 'grey',
+    backgroundColor: '#d0dae8',
+    borderRadius: 12,
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
   },
   imgStuff: {
       width: 300,
-  }
+  },
+  roott: {
+    maxWidth: 380,
+    backgroundColor: '#f8feff',
+    margin: 50,
+    
+  },
+  media: {
+    height: 140,
+  },
+  
 }));
 
 
@@ -55,39 +66,74 @@ export default function Cpus(props) {
 
   
   useEffect(() => {
-    props.setCountCpuArray([props.countCpu1, props.countCpu2, props.countCpu3, props.countCpu4, props.countCpu5, props.countCpu6, props.countCpu7, props.countCpu8])
+    props.setCountCpuArray([props.countCpu1, props.countCpu2, props.countCpu3, props.countCpu4, props.countCpu5, props.countCpu6, props.countCpu7, props.countCpu8]);
+    
   },[props.countCpu1, props.countCpu2, props.countCpu3, props.countCpu4, props.countCpu5, props.countCpu6, props.countCpu7, props.countCpu8])
   
  
 
   return (
     <div className={classes.root}>
-      <ImageList rowHeight={180} className={classes.imageList}>
-        <ImageListItem key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div"></ListSubheader>
-        </ImageListItem>
+      <ImageList rowHeight={180} className={classes.imageList} style={{ justifyContent: 'center'}}>
+         <ImageListItem key="Subheader" cols={2} style={{ height: 'auto', boxShadow: 'none',  }}>
+          <Typography style={{ fontSize: 50, textAlign: 'center',  width: 500, marginLeft: 195, marginRight: 0}} cols={2}>
+            Cpus
+            </Typography>
+        </ImageListItem> 
+        
         {props.myCpuItems.map((item) => (
-          <ImageListItem key={item.img} >
+          <Card className={classes.roott} style={{boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px'}}>
+          <CardActionArea>
             
-            <img src={item.img} alt={item.title} />
-            <ImageListItemBar
-              title={item.title}
-              subtitle={<span>${item.price}</span>}
-              
-              actionIcon={
-                <IconButton aria-label={`info about ${item.title}`} className={classes.icon} onClick={() => item.num()}>
-                  
-                    <Tooltip title="Add to cart" aria-label={`${toString(item.num)}`}>
-                        <AddRoundedIcon />
-                     </Tooltip>
-                </IconButton>
-              }
+            <CardMedia
+              className={classes.media}
+              image={item.img}
+              title="Contemplative Reptile"
               
             />
-            
-          </ImageListItem>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2" onClick={() => console.log('clicked')} >
+                {item.title}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p" onClick={() => console.log('clicked')} style={{borderBottom: '1px solid black'}}>
+                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                across all continents except Antarctica
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+          <Typography variant='h6'>
+          ${item.price}
+          </Typography>
+          
+          <fr></fr><fr></fr><fr></fr><fr></fr><fr></fr><fr></fr><fr></fr><fr></fr><fr></fr><fr></fr>
+            <SimpleSnackbar 
+            item={item}
+            myCpuItems={props.myCpuItems}
+            countTotal={props.countTotal}
+                countCpu1={props.countCpu1}
+                setCountCpu1={props.setCountCpu1}
+                countCpu2={props.countCpu2}
+                setCountCpu2={props.setCountCpu2}
+                countCpu3={props.countCpu3}
+                setCountCpu3={props.setCountCpu3}
+                countCpu4={props.countCpu4}
+                setCountCpu4={props.setCountCpu4}
+                countCpu5={props.countCpu5}
+                setCountCpu5={props.setCountCpu5}
+                countCpu6={props.countCpu6}
+                setCountCpu6={props.setCountCpu6}
+                countCpu7={props.countCpu7}
+                setCountCpu7={props.setCountCpu7}
+                countCpu8={props.countCpu8}
+                setCountCpu8={props.setCountCpu8}
+            />
+            <fr></fr><fr></fr><fr></fr><fr></fr>{item.info}
+          </CardActions>
+        </Card>
           
         ))}
+
       </ImageList>
     </div>
   );

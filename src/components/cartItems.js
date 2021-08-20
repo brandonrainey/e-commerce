@@ -25,7 +25,7 @@ import CpuItem8 from './cpuItem8';
 const useStyles = makeStyles((theme) => ({
     root: {
       width: '100%',
-      maxWidth: 500,
+      maxWidth: 600,
       backgroundColor: 'grey',
       padding: 0,
     },

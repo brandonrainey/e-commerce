@@ -10,6 +10,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 
 import InfoIcon from '@material-ui/icons/Info';
+import Gcard6 from './gcard6.png'
+import { makeStyles } from '@material-ui/core/styles';
 
 const styles = (theme) => ({
   root: {
@@ -51,8 +53,18 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function Card6Popup(props) {
+
+const useStyles = makeStyles((theme) => ({
+  img: {
+    height: 300,
+    width: 500,
+  }
+}));
+
+export default function Card1Popup(props) {
   const [open, setOpen] = React.useState(false);
+
+  const classes = useStyles();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -63,12 +75,14 @@ export default function Card6Popup(props) {
 
   return (
     <div>
-      <InfoIcon  color="primary" onClick={handleClickOpen}>
-       
-      </InfoIcon>
+      <Button  size="small" color="primary" onClick={handleClickOpen}>
+       Learn More
+      </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-         6
+         Cool Card Uno
+         <br></br>
+         <img src={Gcard6} className={classes.img}/>
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>

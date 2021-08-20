@@ -10,6 +10,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 
 import InfoIcon from '@material-ui/icons/Info';
+import Cpu6 from './cpu6.png'
+
+import { makeStyles } from '@material-ui/core/styles';
 
 const styles = (theme) => ({
   root: {
@@ -23,6 +26,13 @@ const styles = (theme) => ({
     color: theme.palette.grey[500],
   },
 });
+
+const useStyles = makeStyles((theme) => ({
+  img: {
+    height: 300,
+    width: 500,
+  }
+}));
 
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
@@ -51,8 +61,10 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function Cpu6Popup(props) {
+export default function Cpu2Popup(props) {
   const [open, setOpen] = React.useState(false);
+
+  const classes = useStyles();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -63,12 +75,14 @@ export default function Cpu6Popup(props) {
 
   return (
     <div>
-      <InfoIcon  color="primary" onClick={handleClickOpen}>
-       
-      </InfoIcon>
+      <Button  size="small" color="primary" onClick={handleClickOpen}>
+       Learn More
+      </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-         6
+        Card6
+         <br></br>
+         <img src={Cpu6} className={classes.img}/>
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>

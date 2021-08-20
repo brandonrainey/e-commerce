@@ -24,6 +24,8 @@ import {
 import HomePage from './homePage';
 import TitlebarImageList from './titlebarImageList';
 import { Badge } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    
   },
   search: {
     position: 'relative',
@@ -79,8 +82,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   drop: {
-    marginTop: '20px',
-    paddingLeft: '10px'
+    marginTop: '8.5px',
+    
+    
+    backgroundColor: '#1a303e'
   }
 }));
 
@@ -132,7 +137,7 @@ export default function SearchAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal anchorPosition={{ left: 600, top: 200}}>
+          <Popper open={open}  role={undefined} transition disablePortal anchorEl={anchorRef} anchorPosition={{ left: 600, top: 200}} style={{      width: 200, marginTop: 56 }}>
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
@@ -143,10 +148,10 @@ export default function SearchAppBar(props) {
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown} className={classes.drop}>
                     
                     
-                      <MenuItem onClick={handleClose}><Link to='/home' >Home</Link></MenuItem>
-                      <MenuItem onClick={handleClose}><Link to='/shop'>Cards</Link></MenuItem>
-                      <MenuItem onClick={handleClose}><Link to='/cpu'>Cpu's</Link></MenuItem>
-                      <MenuItem onClick={handleClose}><Link to='/something'>Something</Link></MenuItem>
+                      <Link to='/home' ><MenuItem onClick={handleClose} className='links'>Home</MenuItem></Link>
+                      <Link to='/shop'><MenuItem onClick={handleClose} className='links'>Cards</MenuItem></Link>
+                      <Link to='/cpu'><MenuItem onClick={handleClose} className='links'>Cpu's</MenuItem></Link>
+                      <Link to='/something'><MenuItem onClick={handleClose} className='links'>Something</MenuItem></Link>
                     
                   </MenuList>
                 </ClickAwayListener>
@@ -157,12 +162,12 @@ export default function SearchAppBar(props) {
 
 
           <Typography className={classes.title} variant="h6" noWrap >
-            Home
+            <Link to='/home' className='homeLink'><HomeIcon className='hIcon'/></Link>
           </Typography>
 
           <IconButton>
             <Badge badgeContent={props.countTotal} color='secondary'>
-              <Link to='/cart'><ShoppingCartSharpIcon /></Link>
+              <Link to='/cart'><ShoppingCartSharpIcon style={{ color: 'white' , marginTop: 5}}/></Link>
             </Badge>
           </IconButton>
 

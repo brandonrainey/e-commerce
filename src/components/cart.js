@@ -2,6 +2,8 @@ import { React, useState, useEffect } from 'react'
 import CartItems from './cartItems'
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Box } from '@material-ui/core';
+import Sad from './sad.png';
 
 export default function Cart(props) {
 
@@ -11,11 +13,24 @@ export default function Cart(props) {
           height: 40,
           
           marginTop: 10,
-          marginLeft: '46%',
+          
+          
         },
         nopad: {
           paddingTop: 0,
           paddingBottom: 0,
+        },
+        box: {
+            backgroundColor: '#d0dae8',
+            height: 200,
+            width: 300,
+            marginTop: 10,
+          marginLeft: '42%',
+          fontSize: 26,
+          textAlign: 'center',
+        },
+        cartColor: {
+            backgroundColor: '#d0dae8',
         }
       }));
 
@@ -48,7 +63,7 @@ export default function Cart(props) {
     if (props.countTotal > 0) {
         return (
 
-        <div>
+        <div >
             
             <CartItems 
                 count1={props.count1}
@@ -88,16 +103,18 @@ export default function Cart(props) {
                 countCpuArray={props.countCpuArray}
                 setCountCpuArray={props.setCountCpuArray}
             />
-            <div className='total'>Your Total is ${sumTotal}</div>
+            <div className='total'>Your Total is - ${sumTotal} <br></br>
             <Button variant="contained" color="primary" className={classes.root}>
                 Checkout
             </Button>
+            </div>
         </div>
     )
     } else return(
-        <div>
+        <Box className={classes.box} >
             Your Cart Is Empty
-        </div>
+            <img src={Sad} className='sadImg'/>
+        </Box>
     )
     
 }

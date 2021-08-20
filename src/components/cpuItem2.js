@@ -15,7 +15,11 @@ const useStyles = makeStyles((theme) => ({
   
   icon: {
     height: 100,
-    width: 100,
+    width: 150,
+  },
+  cartColor: {
+    backgroundColor: '#d0dae8',
+    borderBottom: '1px solid black',
   }
 }));
 
@@ -26,12 +30,12 @@ export default function ListItem2(props) {
     
         if (props.countCpu2 > 0) {
                 return (
-                    <ListItem >
+                    <ListItem className={classes.cartColor}>
         <ListItemAvatar>
         <img src={Cpu2} className={classes.icon}/>
         </ListItemAvatar>
-        <ListItemText primary={`Cpu2 x${props.countCpu2}`} secondary={`$${33 * props.countCpu2}`} />
-        <Button variant="contained" color="primary" onClick={() => props.setCountCpu1(props.countCpu2 - 1)}>
+        <ListItemText primary={`Cpu2 x${props.countCpu2}`} secondary={`$${600 * props.countCpu2}`} />
+        <Button variant="contained" color="secondary" onClick={() => props.setCountCpu2(props.countCpu2 - 1)}>
         Remove From Cart
         </Button>
       </ListItem>

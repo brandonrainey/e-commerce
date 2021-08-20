@@ -15,7 +15,11 @@ const useStyles = makeStyles((theme) => ({
   
   icon: {
     height: 100,
-    width: 100,
+    width: 150,
+  },
+  cartColor: {
+    backgroundColor: '#d0dae8',
+    borderBottom: '1px solid black',
   }
 }));
 
@@ -26,14 +30,14 @@ export default function ListItem1(props) {
     
         if (props.count1 > 0) {
                 return (
-                    <ListItem >
+                    <ListItem  className={classes.cartColor}>
         <ListItemAvatar >
           
             <img src={Gcard1} className={classes.icon}/>
           
         </ListItemAvatar>
         <ListItemText primary={`Card1 x${props.count1}`} secondary={`$${100 * props.count1}`} />
-        <Button variant="contained" color="primary" onClick={() => props.setCount1(props.count1 - 1)}>
+        <Button variant="contained" color="secondary" onClick={() => props.setCount1(props.count1 - 1)}>
         Remove From Cart
         </Button>
       </ListItem>

@@ -15,10 +15,12 @@ import HomeImg1 from './homeImg1.png';
 import HomeImg2 from './homeImg2.png';
 import HomeImg3 from './homeImg3.png';
 
+import Cpu1 from './cpu1.png'
+
 
 const imgData = [
        {
-         img1: [HomeImg1, HomeImg2, HomeImg3],
+         img1: [HomeImg1, Cpu1, HomeImg3],
         
          title: ['Cards', 'Cpus', 'Other'],
          author: 'author',
@@ -27,7 +29,7 @@ const imgData = [
          id: 0,
        },
        {
-        img1: [HomeImg2, HomeImg3, HomeImg1],
+        img1: [Cpu1, HomeImg3, HomeImg1],
         title: ['Cpus', 'Other', 'Cards'],
         author: 'author',
         featured: false,
@@ -35,7 +37,7 @@ const imgData = [
         id: 1,
        },
        {
-        img1: [HomeImg3, HomeImg1, HomeImg2],
+        img1: [HomeImg3, HomeImg1, Cpu1],
         title: ['Other', 'Cards', 'Cpus'],
         author: 'author',
         featured: false,
@@ -62,10 +64,7 @@ export default function HomePage() {
     setActive(!isActive);
   };
 
-    const changeImg = () => {
-      setTimeout(() => Date())
-       
-     }
+   
 
      useEffect(() => {
       
@@ -87,13 +86,13 @@ export default function HomePage() {
      
     return (
       <div className='homeContainer'>
-        <GridList cellHeight={300} cols={2} style={{ width: 1000, height: 800}}>
+        <GridList cellHeight={350} cols={2} style={{ width: 1200, height: 850, padding: 0}} spacing={75} >
           {imgData.map((item) => (
             <GridListTile key={item.id} cols={item.cols || 1}>
               <img src={item.img1[imgNum]} alt={item.title} className={`imggg, ${isActive ? 'fadeee' : 'fadee'}`} ref={fadeImg} key={+new Date()}/>
               <GridListTileBar
               title={item.title[imgNum]}
-              subtitle={item.title}
+              
               
               actionIcon={
                 <IconButton>

@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -10,6 +10,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 
 import InfoIcon from '@material-ui/icons/Info';
+import Gcard1 from './gcard1.png'
+import { makeStyles } from '@material-ui/core/styles';
 
 const styles = (theme) => ({
   root: {
@@ -51,8 +53,20 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
+
+const useStyles = makeStyles((theme) => ({
+  img: {
+    height: 300,
+    width: 500,
+  }
+}));
+
 export default function Card1Popup(props) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+
+  const [counter, setCounter] = useState(0);
+
+  const classes = useStyles();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -61,14 +75,21 @@ export default function Card1Popup(props) {
     setOpen(false);
   };
 
+
+  useEffect(() => {
+    props.setCount1(props.count1 + 1)
+  }, [counter])
+
   return (
-    <div>
-      <InfoIcon  color="primary" onClick={handleClickOpen}>
-       
-      </InfoIcon>
+    <div className='learnMore'>
+      <Button  size="small" color="primary" onClick={handleClickOpen} >
+       Learn More
+      </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
          Cool Card Uno
+         <br></br>
+         <img src={Gcard1} className={classes.img}/>
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
@@ -86,8 +107,8 @@ export default function Card1Popup(props) {
           </Typography>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Save changes
+          <Button autoFocus  color="primary" onClick={() => setCounter(counter + 1)}>
+            Add to cart
           </Button>
         </DialogActions>
       </Dialog>

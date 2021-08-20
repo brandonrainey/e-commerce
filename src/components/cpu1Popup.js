@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -10,6 +10,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 
 import InfoIcon from '@material-ui/icons/Info';
+import Cpu1 from './cpu1.png';
+import { makeStyles } from '@material-ui/core/styles';
+
 
 const styles = (theme) => ({
   root: {
@@ -22,7 +25,15 @@ const styles = (theme) => ({
     top: theme.spacing(1),
     color: theme.palette.grey[500],
   },
+  
 });
+
+const useStyles = makeStyles((theme) => ({
+  img: {
+    height: 300,
+    width: 500,
+  }
+}));
 
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
@@ -52,7 +63,9 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function Cpu1Popup(props) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+
+  const classes = useStyles();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -63,12 +76,14 @@ export default function Cpu1Popup(props) {
 
   return (
     <div>
-      <InfoIcon  color="primary" onClick={handleClickOpen}>
-       
-      </InfoIcon>
+      <Button  size="small" color="primary" onClick={handleClickOpen}>
+       Learn More
+      </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-         1
+         Card1
+         <br></br>
+         <img src={Cpu1} className={classes.img}/>
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
@@ -85,11 +100,9 @@ export default function Cpu1Popup(props) {
             auctor fringilla.
           </Typography>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={() => {props.setCountCpu1(props.countCpu1 + 1)}} color="primary">
-            Add to cart
-          </Button>
-        </DialogActions>
+        
+          
+        
       </Dialog>
     </div>
   );
