@@ -99,9 +99,7 @@ export default function Cpu2Popup(props) {
             auctor fringilla.
           </Typography>
         </DialogContent>
-        <DialogActions>
-          
-        </DialogActions>
+       
       </Dialog>
     </div>
   );

@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Card1Popup(props) {
   const [open, setOpen] = useState(false);
 
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(0)
 
   const classes = useStyles();
 
@@ -76,9 +76,7 @@ export default function Card1Popup(props) {
   };
 
 
-  useEffect(() => {
-    props.setCount1(props.count1 + 1)
-  }, [counter])
+  
 
   return (
     <div className='learnMore'>
@@ -106,11 +104,7 @@ export default function Card1Popup(props) {
             auctor fringilla.
           </Typography>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus  color="primary" onClick={() => setCounter(counter + 1)}>
-            Add to cart
-          </Button>
-        </DialogActions>
+        
       </Dialog>
     </div>
   );

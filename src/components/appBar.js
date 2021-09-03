@@ -21,11 +21,13 @@ import {
   Link,
   BrowserRouter
 } from "react-router-dom";
-import HomePage from './homePage';
-import TitlebarImageList from './titlebarImageList';
+
 import { Badge } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
+import { Avatar } from '@material-ui/core';
+import PersonIcon from '@material-ui/icons/Person';
+import { useAuth } from '../contexts/AuthContext'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -84,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   drop: {
     marginTop: '8.5px',
     
-    
+    zIndex: 99,
     backgroundColor: '#1a303e'
   }
 }));
@@ -93,6 +95,7 @@ export default function SearchAppBar(props) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
+  const { currentUser } = useAuth();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -145,13 +148,13 @@ export default function SearchAppBar(props) {
             >
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown} className={classes.drop}>
+                  <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown} className={classes.drop} style={{ zIndex: 99}}>
                     
                     
                       <Link to='/home' ><MenuItem onClick={handleClose} className='links'>Home</MenuItem></Link>
                       <Link to='/shop'><MenuItem onClick={handleClose} className='links'>Cards</MenuItem></Link>
                       <Link to='/cpu'><MenuItem onClick={handleClose} className='links'>Cpu's</MenuItem></Link>
-                      <Link to='/something'><MenuItem onClick={handleClose} className='links'>Something</MenuItem></Link>
+                      <Link to='/useritems'><MenuItem onClick={handleClose} className='links'>User Items</MenuItem></Link>
                     
                   </MenuList>
                 </ClickAwayListener>
@@ -186,6 +189,15 @@ export default function SearchAppBar(props) {
               onChange={getSearchTerm}
             />
           </div>
+          
+              <Link to={currentUser ? '/dashboard' : '/login'}>
+<Button>
+            <Avatar>
+                <PersonIcon></PersonIcon>
+</Avatar>
+          </Button>
+                </Link>
+            
         </Toolbar>
       </AppBar>
     </div>

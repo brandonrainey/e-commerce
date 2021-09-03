@@ -99,11 +99,7 @@ export default function Card1Popup(props) {
             auctor fringilla.
           </Typography>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Save changes
-          </Button>
-        </DialogActions>
+        
       </Dialog>
     </div>
   );

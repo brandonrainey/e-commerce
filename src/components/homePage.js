@@ -86,7 +86,7 @@ export default function HomePage() {
      
     return (
       <div className='homeContainer'>
-        <GridList cellHeight={350} cols={2} style={{ width: 1200, height: 850, padding: 0}} spacing={75} >
+        <GridList cellHeight={350} cols={2} style={{ width: 1200, height: 850, padding: 0, zIndex: -1}} spacing={75} >
           {imgData.map((item) => (
             <GridListTile key={item.id} cols={item.cols || 1}>
               <img src={item.img1[imgNum]} alt={item.title} className={`imggg, ${isActive ? 'fadeee' : 'fadee'}`} ref={fadeImg} key={+new Date()}/>
@@ -103,7 +103,7 @@ export default function HomePage() {
                     } else if (item.img1[imgNum] === HomeImg2) {
                       return '/cpu'
                     } else if (item.img1[imgNum] === HomeImg3) {
-                      return '/idk'
+                      return '/useritems'
                     }
                   }} className='menuLinks'>Shop</Link>
                 </IconButton>

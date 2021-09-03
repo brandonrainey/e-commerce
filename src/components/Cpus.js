@@ -82,7 +82,7 @@ export default function Cpus(props) {
         </ImageListItem> 
         
         {props.myCpuItems.map((item) => (
-          <Card className={classes.roott} style={{boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px'}}>
+          <Card className={classes.roott} style={{boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px', height: 320}}>
           <CardActionArea>
             
             <CardMedia

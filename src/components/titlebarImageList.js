@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: '#1e395f',
-    
+   
     
   },
   imageList: {
@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
   roott: {
     maxWidth: 380,
+    height: 500,
     backgroundColor: '#f8feff',
     margin: 50,
     
@@ -88,7 +89,7 @@ export default function TitlebarImageList(props) {
          
           
           
-        <Card className={classes.roott}>
+        <Card className={classes.roott} style={{ height: 320, boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px'}}>
         <CardActionArea>
           
           <CardMedia
