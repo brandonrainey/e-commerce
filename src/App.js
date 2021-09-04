@@ -53,7 +53,6 @@ import SimpleSnackbar from "./components/mysnackbar";
 import SignUp from "./components/signUp";
 import Dashboard from "./components/Dashboard";
 
-
 import { AuthProvider } from "./contexts/AuthContext";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
@@ -92,8 +91,6 @@ function App() {
   const [countCpu6, setCountCpu6] = useState(0);
   const [countCpu7, setCountCpu7] = useState(0);
   const [countCpu8, setCountCpu8] = useState(0);
-
- 
 
   const [myItems, setMyItems] = useState([
     {
@@ -237,8 +234,6 @@ function App() {
     },
   ]);
 
-  
-
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -339,7 +334,11 @@ function App() {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={Login} />
-            <PrivateRoute exact path="/updateprofile" component={UpdateProfile} />
+            <PrivateRoute
+              exact
+              path="/updateprofile"
+              component={UpdateProfile}
+            />
             <Route
               exact
               path="/createitem"

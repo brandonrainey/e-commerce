@@ -1,38 +1,38 @@
-import React, { useRef, useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import React, { useRef, useState } from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Alert from '@material-ui/lab/Alert';
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import Alert from "@material-ui/lab/Alert";
 
-
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from "../contexts/AuthContext";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  BrowserRouter, useHistory
+  BrowserRouter,
+  useHistory,
 } from "react-router-dom";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -40,61 +40,54 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
   box: {
-    backgroundColor: '#d0dae8'
-  }
+    backgroundColor: "#d0dae8",
+  },
 }));
 
 export default function ForgotPassword() {
   const classes = useStyles();
   const emailRef = useRef();
-  
-  const [message, setMessage] = useState('')
+
+  const [message, setMessage] = useState("");
   const { resetPassword } = useAuth();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  
-
   async function handleSubmit(e) {
-    e.preventDefault();  
+    e.preventDefault();
 
-    
-
-
-      try {
-        setMessage('')
-        setError('')
-        setLoading(true)
-        await resetPassword(emailRef.current.value)
-        setMessage('Check your inbox for further instructions')
-      } catch (error)  {
-        console.log(error)
-        console.log(emailRef.current.value)
-        setError('Failed to reset password')
-
-      }
-      setLoading(false)
+    try {
+      setMessage("");
+      setError("");
+      setLoading(true);
+      await resetPassword(emailRef.current.value);
+      setMessage("Check your inbox for further instructions");
+    } catch (error) {
+      console.log(error);
+      console.log(emailRef.current.value);
+      setError("Failed to reset password");
+    }
+    setLoading(false);
   }
 
   return (
     <Container component="main" maxWidth="xs" className={classes.box}>
-      
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -102,11 +95,10 @@ export default function ForgotPassword() {
         <Typography component="h1" variant="h5">
           Password Reset
         </Typography>
-        
-        {error && <Alert severity='error'>{error}</Alert>}
-        {message && <Alert severity='success'>{message}</Alert>}
-        <form className={classes.form}  onSubmit={handleSubmit}>
-          
+
+        {error && <Alert severity="error">{error}</Alert>}
+        {message && <Alert severity="success">{message}</Alert>}
+        <form className={classes.form} onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -117,13 +109,10 @@ export default function ForgotPassword() {
             name="email"
             autoComplete="email"
             autoFocus
-            type='email'
+            type="email"
             inputRef={emailRef}
-            
           />
-          
-          
-          
+
           <Button
             type="submit"
             fullWidth
@@ -136,12 +125,12 @@ export default function ForgotPassword() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link to='/login' variant="body2">
+              <Link to="/login" variant="body2">
                 Login
               </Link>
             </Grid>
             <Grid item>
-              <Link to='/signup' variant="body2">
+              <Link to="/signup" variant="body2">
                 {"Need an account? Sign up"}
               </Link>
             </Grid>

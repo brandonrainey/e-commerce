@@ -11,7 +11,6 @@ import Typography from "@material-ui/core/Typography";
 import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 
-
 import { useHistory } from "react-router-dom";
 import { db } from "../firebase";
 
@@ -56,14 +55,12 @@ export default function CreateItem(props) {
   function addItem() {
     const randId = uuidv4();
 
-    db.collection("userItems")
-      .doc(`${randId}`)
-      .set({
-        title: userTitle.current.value,
-        description: userDescription.current.value,
-        price: userPrice.current.value,
-        id: randId,
-      });
+    db.collection("userItems").doc(`${randId}`).set({
+      title: userTitle.current.value,
+      description: userDescription.current.value,
+      price: userPrice.current.value,
+      id: randId,
+    });
   }
 
   function handleSubmit(e) {

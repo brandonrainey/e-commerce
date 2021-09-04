@@ -1,16 +1,14 @@
-html, :root {
+html,
+:root {
   background-color: #1e395f;
   margin: 0;
   padding: 0;
   height: 100%;
-  
 }
-
-
 
 .MuiImageListItem-item {
   width: 400px;
-  
+
   margin-left: 45px;
 }
 
@@ -18,7 +16,6 @@ html, :root {
   margin-bottom: 50px;
   justify-content: center;
   align-items: center;
-  
 }
 
 .MuiImageList-root {
@@ -79,40 +76,45 @@ a {
 .imggg {
   height: 100%;
   width: 100%;
-  
 }
 
 .fadeee {
   animation: fadein 8s;
-    -moz-animation: fadein 8s; 
-    -webkit-animation: fadein 8s; 
-    -o-animation: fadein 8s; 
+  -moz-animation: fadein 8s;
+  -webkit-animation: fadein 8s;
+  -o-animation: fadein 8s;
 }
 
 @keyframes fadein {
-  0% { opacity: 0; }
-  30% { opacity: 1; }
-  85% { opacity: 1;}
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .fadee {
   animation: fadein 8s;
-    -moz-animation: fadein 8s; 
-    -webkit-animation: fadein 8s; 
-    -o-animation: fadein 8s; 
-
-    
+  -moz-animation: fadein 8s;
+  -webkit-animation: fadein 8s;
+  -o-animation: fadein 8s;
 }
 
 .total {
-  width: '100%';
-      max-Width: 600px;
-      background-Color: #d0dae8;
-      padding: 0;
-      margin-left: 34.25%;
-      text-align: center;
-      font-size: 30px;
+  width: "100%";
+  max-width: 600px;
+  background-color: #d0dae8;
+  padding: 0;
+  margin-left: 34.25%;
+  text-align: center;
+  font-size: 30px;
 }
 
 .menuLinks {
@@ -131,13 +133,13 @@ a {
 }
 
 .MuiImageListItem-root {
-  align-content: center ;
+  align-content: center;
   margin-bottom: 0;
 }
 
 .MuiImageListItem-item {
-  justify-content: center ;
-  align-items: center ;
+  justify-content: center;
+  align-items: center;
   width: 700px;
 }
 
@@ -147,11 +149,8 @@ a {
   align-content: center;
 }
 
-
-
 .MuiCard-root {
-  height: 320px ;
-  
+  height: 320px;
 }
 
 .learnMore {
@@ -182,7 +181,7 @@ a {
 }
 
 .sadImg {
-  height:auto;
+  height: auto;
   width: 300px;
 }
 
@@ -194,18 +193,8 @@ a {
   justify-content: center;
   align-items: center;
   text-align: center;
-  
 }
 
 .MuiGridListTileBar-title {
   font-size: 26px !important;
-  
 }
-
-
-
-
-
-
-
-

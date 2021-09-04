@@ -1,33 +1,33 @@
-import { React, useState, useRef } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import { alpha, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
+import { React, useState, useRef } from "react";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import InputBase from "@material-ui/core/InputBase";
+import { alpha, makeStyles } from "@material-ui/core/styles";
+import MenuIcon from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
+import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  BrowserRouter
+  BrowserRouter,
 } from "react-router-dom";
 
-import { Badge } from '@material-ui/core';
-import { Button } from '@material-ui/core';
-import HomeIcon from '@material-ui/icons/Home';
-import { Avatar } from '@material-ui/core';
-import PersonIcon from '@material-ui/icons/Person';
-import { useAuth } from '../contexts/AuthContext'
+import { Badge } from "@material-ui/core";
+import { Button } from "@material-ui/core";
+import HomeIcon from "@material-ui/icons/Home";
+import { Avatar } from "@material-ui/core";
+import PersonIcon from "@material-ui/icons/Person";
+import { useAuth } from "../contexts/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,57 +38,56 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "block",
     },
-    
   },
   search: {
-    position: 'relative',
+    position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
+    "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(1),
-      width: 'auto',
+      width: "auto",
     },
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   inputRoot: {
-    color: 'inherit',
+    color: "inherit",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: "12ch",
+      "&:focus": {
+        width: "20ch",
       },
     },
   },
   drop: {
-    marginTop: '8.5px',
-    
+    marginTop: "8.5px",
+
     zIndex: 99,
-    backgroundColor: '#1a303e'
-  }
+    backgroundColor: "#1a303e",
+  },
 }));
 
 export default function SearchAppBar(props) {
@@ -110,27 +109,24 @@ export default function SearchAppBar(props) {
   };
 
   function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
+    if (event.key === "Tab") {
       event.preventDefault();
       setOpen(false);
     }
   }
 
   const getSearchTerm = (e) => {
-    props.searchKeyword(e.target.value)
-    props.searchKeywordCpu(e.target.value)
-  }
-
-  
+    props.searchKeyword(e.target.value);
+    props.searchKeywordCpu(e.target.value);
+  };
 
   return (
     <div className={classes.root}>
-      
       <AppBar position="static">
         <Toolbar>
           <IconButton
             ref={anchorRef}
-            aria-controls={open ? 'menu-list-grow' : undefined}
+            aria-controls={open ? "menu-list-grow" : undefined}
             aria-haspopup="true"
             edge="start"
             className={classes.menuButton}
@@ -140,37 +136,72 @@ export default function SearchAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Popper open={open}  role={undefined} transition disablePortal anchorEl={anchorRef} anchorPosition={{ left: 600, top: 200}} style={{      width: 200, marginTop: 56 }}>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown} className={classes.drop} style={{ zIndex: 99}}>
-                    
-                    
-                      <Link to='/home' ><MenuItem onClick={handleClose} className='links'>Home</MenuItem></Link>
-                      <Link to='/shop'><MenuItem onClick={handleClose} className='links'>Cards</MenuItem></Link>
-                      <Link to='/cpu'><MenuItem onClick={handleClose} className='links'>Cpu's</MenuItem></Link>
-                      <Link to='/useritems'><MenuItem onClick={handleClose} className='links'>User Items</MenuItem></Link>
-                    
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
+          <Popper
+            open={open}
+            role={undefined}
+            transition
+            disablePortal
+            anchorEl={anchorRef}
+            anchorPosition={{ left: 600, top: 200 }}
+            style={{ width: 200, marginTop: 56 }}
+          >
+            {({ TransitionProps, placement }) => (
+              <Grow
+                {...TransitionProps}
+                style={{
+                  transformOrigin:
+                    placement === "bottom" ? "center top" : "center bottom",
+                }}
+              >
+                <Paper>
+                  <ClickAwayListener onClickAway={handleClose}>
+                    <MenuList
+                      autoFocusItem={open}
+                      id="menu-list-grow"
+                      onKeyDown={handleListKeyDown}
+                      className={classes.drop}
+                      style={{ zIndex: 99 }}
+                    >
+                      <Link to="/home">
+                        <MenuItem onClick={handleClose} className="links">
+                          Home
+                        </MenuItem>
+                      </Link>
+                      <Link to="/shop">
+                        <MenuItem onClick={handleClose} className="links">
+                          Cards
+                        </MenuItem>
+                      </Link>
+                      <Link to="/cpu">
+                        <MenuItem onClick={handleClose} className="links">
+                          Cpu's
+                        </MenuItem>
+                      </Link>
+                      <Link to="/useritems">
+                        <MenuItem onClick={handleClose} className="links">
+                          User Items
+                        </MenuItem>
+                      </Link>
+                    </MenuList>
+                  </ClickAwayListener>
+                </Paper>
+              </Grow>
+            )}
+          </Popper>
 
-
-          <Typography className={classes.title} variant="h6" noWrap >
-            <Link to='/home' className='homeLink'><HomeIcon className='hIcon'/></Link>
+          <Typography className={classes.title} variant="h6" noWrap>
+            <Link to="/home" className="homeLink">
+              <HomeIcon className="hIcon" />
+            </Link>
           </Typography>
 
           <IconButton>
-            <Badge badgeContent={props.countTotal} color='secondary'>
-              <Link to='/cart'><ShoppingCartSharpIcon style={{ color: 'white' , marginTop: 5}}/></Link>
+            <Badge badgeContent={props.countTotal} color="secondary">
+              <Link to="/cart">
+                <ShoppingCartSharpIcon
+                  style={{ color: "white", marginTop: 5 }}
+                />
+              </Link>
             </Badge>
           </IconButton>
 
@@ -184,20 +215,19 @@ export default function SearchAppBar(props) {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ "aria-label": "search" }}
               value={props.searchTerm}
               onChange={getSearchTerm}
             />
           </div>
-          
-              <Link to={currentUser ? '/dashboard' : '/login'}>
-<Button>
-            <Avatar>
+
+          <Link to={currentUser ? "/dashboard" : "/login"}>
+            <Button>
+              <Avatar>
                 <PersonIcon></PersonIcon>
-</Avatar>
-          </Button>
-                </Link>
-            
+              </Avatar>
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

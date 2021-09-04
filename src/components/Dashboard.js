@@ -115,7 +115,6 @@ export default function Dashboard(props) {
   const { currentUser, logout } = useAuth();
   const history = useHistory();
 
-
   function getItems() {
     db.collection("userItems").onSnapshot((snapshot) => {
       const myItems = [];
@@ -125,10 +124,6 @@ export default function Dashboard(props) {
       props.setItems(myItems);
     });
   }
-
-
-
-
 
   async function handleLogout() {
     setError("");
@@ -152,7 +147,6 @@ export default function Dashboard(props) {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-
   //  useEffect(() => {
   //   getItems();
   // },[]);
@@ -164,10 +158,12 @@ export default function Dashboard(props) {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9} >
+            <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper} style={{}}>
-                <Link to='/updateprofile'><Button variant='contained'>Update Profile</Button></Link>
-                
+                <Link to="/updateprofile">
+                  <Button variant="contained">Update Profile</Button>
+                </Link>
+
                 <Button variant="contained" onClick={handleLogout} style={{}}>
                   Logout {currentUser.email}
                 </Button>
