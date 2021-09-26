@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./App.css";
 import { Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,8 +9,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  BrowserRouter,
 } from "react-router-dom";
 import HomePage from "./components/homePage";
 import Cart from "./components/cart";
@@ -60,14 +58,18 @@ import ForgotPassword from "./components/ForgotPassword";
 import CreateItem from "./components/createItem";
 import UserItems from "./components/userItems";
 import UpdateProfile from "./components/UpdateProfile";
+import { db } from "./firebase";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 
 const useStyles = makeStyles({
   box: {
-    backgroundColor: "rgb(186 247 255)",
+    backgroundColor: "#d5f8ff",
     height: "100px",
     justifyContent: "center",
     textAlign: "center",
     fontWeight: "bold",
+    
   },
 });
 
@@ -91,6 +93,8 @@ function App() {
   const [countCpu6, setCountCpu6] = useState(0);
   const [countCpu7, setCountCpu7] = useState(0);
   const [countCpu8, setCountCpu8] = useState(0);
+
+  const [countUser, setCountUser] = useState([]);
 
   const [myItems, setMyItems] = useState([
     {
@@ -236,6 +240,7 @@ function App() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [searchResultsUser, setSearchResultsUser] = useState([])
 
   const [searchResultsCpu, setSearchResultsCpu] = useState([]);
 
@@ -261,6 +266,10 @@ function App() {
     countCpu8,
   ]);
 
+
+
+  const userTotal = countUser.reduce((a,v) => a = a + v, 0)
+
   const countTotal =
     count1 +
     count2 +
@@ -277,7 +286,8 @@ function App() {
     countCpu5 +
     countCpu6 +
     countCpu7 +
-    countCpu8;
+    countCpu8 +
+    userTotal;
 
   const [userTitle, setUserTitle] = useState("");
   const [userDescription, setUserDescription] = useState("");
@@ -285,6 +295,8 @@ function App() {
 
   const [items, setItems] = useState([]);
   const [createdItem, setCreatedItem] = useState();
+
+  const matches = useMediaQuery('(max-width: 480px)');
 
   const searchHandler = (searchTerm) => {
     setSearchTerm(searchTerm);
@@ -316,11 +328,42 @@ function App() {
     }
   };
 
+  const searchHandlerUser = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    if (searchTerm !== "") {
+      const newUserItems = items.filter((item) => {
+        return Object.values(item)
+          .join(" ")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      });
+      setSearchResultsUser(newUserItems);
+    } else {
+      setSearchResultsUser(items);
+    }
+  };
+
+
+  function getItems() {
+    db.collection("userItems").onSnapshot((snapshot) => {
+      const myItems = [];
+      snapshot.forEach((doc) => {
+        myItems.push(doc.data());
+        countUser.push(0)
+      });
+      setItems(myItems);
+    });
+  }
+
+   useEffect(() => {
+    getItems();
+  },[]);
+
   return (
     <AuthProvider>
       <div className="full">
         <Box className={classes.box}>
-          <Typography variant="h1">E-COMMERCE</Typography>
+          <Typography variant={matches ? 'h4' : "h1"} className='siteName'>E-COMMERCE</Typography>
         </Box>
 
         <Router>
@@ -329,6 +372,7 @@ function App() {
             searchTerm={searchTerm}
             searchKeyword={searchHandler}
             searchKeywordCpu={searchHandlerCpu}
+            searchKeywordUser={searchHandlerUser}
           />
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -367,10 +411,15 @@ function App() {
                   userTitle={userTitle}
                   userDescription={userDescription}
                   userPrice={userPrice}
-                  items={items}
+                  items={searchTerm.length < 1 ? items : searchResultsUser}
                   setItems={setItems}
                   createdItem={createdItem}
                   setCreatedItem={setCreatedItem}
+                  countUser={countUser}
+                  setCountUser={setCountUser}
+                  
+                  searchTerm={searchTerm}
+                  searchKeyword={searchHandlerUser}
                 />
               )}
             />
@@ -457,6 +506,9 @@ function App() {
                   setCountCpu8={setCountCpu8}
                   countCpuArray={countCpuArray}
                   setCountCpuArray={setCountCpuArray}
+                  countUser={countUser}
+                  setCountUser={setCountUser}
+                  items={items}
                 />
               )}
             />

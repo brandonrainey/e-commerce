@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -10,9 +10,9 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 
 
-import Cpu6 from "./cpu6.png";
 
 import { makeStyles } from "@material-ui/core/styles";
+import Placeholder from './placeholder.png'
 
 const styles = (theme) => ({
   root: {
@@ -25,14 +25,10 @@ const styles = (theme) => ({
     top: theme.spacing(1),
     color: theme.palette.grey[500],
   },
+  learnMore: {
+      marginLeft: 'auto'
+  }
 });
-
-const useStyles = makeStyles((theme) => ({
-  img: {
-    height: 300,
-    width: 500,
-  },
-}));
 
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
@@ -60,8 +56,17 @@ const DialogContent = withStyles((theme) => ({
 
 
 
-export default function Cpu2Popup(props) {
-  const [open, setOpen] = React.useState(false);
+const useStyles = makeStyles((theme) => ({
+  img: {
+    height: 300,
+    width: 500,
+  },
+}));
+
+export default function UserPopup(props) {
+  const [open, setOpen] = useState(false);
+
+  
 
   const classes = useStyles();
 
@@ -72,8 +77,11 @@ export default function Cpu2Popup(props) {
     setOpen(false);
   };
 
+
+  
+
   return (
-    <div>
+    <div className={classes.learnMore} style={{ marginLeft: 'auto'}}>
       <Button size="small" color="primary" onClick={handleClickOpen}>
         Learn More
       </Button>
@@ -83,25 +91,19 @@ export default function Cpu2Popup(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Card6
+          {props.item.title}
           <br></br>
-          <img src={Cpu6} className={`${classes.img} popupImg`} alt=''/>
+          <img src={Placeholder} className={classes.img} alt=''/>
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
+            {props.item.description}
           </Typography>
           <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor.
+          {props.item.description}
           </Typography>
           <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-            dui. Donec ullamcorper nulla non metus auctor fringilla.
+          {props.item.description}
           </Typography>
         </DialogContent>
       </Dialog>

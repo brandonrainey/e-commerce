@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Box } from "@material-ui/core";
 import Sad from "./sad.png";
 
+
 export default function Cart(props) {
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,8 +42,17 @@ export default function Cart(props) {
     33, 600, 42, 150, 188, 239, 511, 375,
   ]);
 
+  
+const [userPrice, setUserPrice] = useState(0)
+
+function addUserTotal() {
+  setUserPrice(() => props.items.reduce((sum, item, index) => sum = sum + (item.price * props.countUser[index]), 0))
+}
+
+
+
   const sumTotal =
-    props.count1 * cardPrices[0] +
+  (props.count1 * cardPrices[0] +
     props.count2 * cardPrices[1] +
     props.count3 * cardPrices[2] +
     props.count4 * cardPrices[3] +
@@ -57,7 +67,15 @@ export default function Cart(props) {
     props.countCpu5 * cpuPrices[4] +
     props.countCpu6 * cpuPrices[5] +
     props.countCpu7 * cpuPrices[6] +
-    props.countCpu8 * cpuPrices[7];
+    props.countCpu8 * cpuPrices[7] +
+    userPrice);
+
+    
+
+    useEffect(() => {
+      addUserTotal()
+      
+    }, [props.countUser])
 
   if (props.countTotal > 0) {
     return (
@@ -99,18 +117,24 @@ export default function Cart(props) {
           setCountCpu8={props.setCountCpu8}
           countCpuArray={props.countCpuArray}
           setCountCpuArray={props.setCountCpuArray}
+          countUser={props.countUser}
+          setCountUser={props.setCountUser}
+          items={props.items}
         />
+        <div className='totalWrap'>
         <div className="total">
-          Your Total is - ${sumTotal} <br></br>
-          <Button variant="contained" color="primary" className={classes.root}>
+          Your Total is - ${(sumTotal).toLocaleString()} <br></br>
+          <Button variant="contained" color="primary" className={classes.root} onClick={() => console.log(userPrice)}>
             Checkout
           </Button>
         </div>
+</div>
+
       </div>
     );
   } else
     return (
-      <Box className={classes.box}>
+      <Box className={`${classes.box} emptyCart`}>
         Your Cart Is Empty
         <img src={Sad} className="sadImg" />
       </Box>

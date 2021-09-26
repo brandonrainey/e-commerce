@@ -3,8 +3,7 @@ import React from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import ImageIcon from "@material-ui/icons/Image";
+
 
 import { Button } from "@material-ui/core";
 
@@ -20,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#d0dae8",
     borderBottom: "1px solid black",
   },
+  text: {
+    textAlign: 'center'
+  }
 }));
 
 export default function ListItem8(props) {
@@ -29,11 +31,12 @@ export default function ListItem8(props) {
     return (
       <ListItem className={classes.cartColor}>
         <ListItemAvatar>
-          <img src={Gcard8} className={classes.icon} />
+          <img src={Gcard8} className={classes.icon} alt=''/>
         </ListItemAvatar>
         <ListItemText
           primary={`Card8 x${props.count8}`}
-          secondary={`$${420 * props.count8}`}
+          secondary={`$${(420 * props.count8).toLocaleString()}`}
+          className={classes.text}
         />
         <Button
           variant="contained"

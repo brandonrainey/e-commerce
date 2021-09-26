@@ -15,11 +15,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  
   Link,
-  BrowserRouter,
 } from "react-router-dom";
 
 import { Badge } from "@material-ui/core";
@@ -159,8 +156,8 @@ export default function SearchAppBar(props) {
                       autoFocusItem={open}
                       id="menu-list-grow"
                       onKeyDown={handleListKeyDown}
-                      className={classes.drop}
-                      style={{ zIndex: 99 }}
+                      className={`${classes.drop} dropdown`}
+                      style={{ zIndex: 999, position: 'relative' }}
                     >
                       <Link to="/home">
                         <MenuItem onClick={handleClose} className="links">

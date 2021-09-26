@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#d0dae8",
     borderBottom: "1px solid black",
   },
+  text: {
+    textAlign: 'center'
+  }
 }));
 
 export default function ListItem5(props) {
@@ -27,11 +30,12 @@ export default function ListItem5(props) {
     return (
       <ListItem className={classes.cartColor}>
         <ListItemAvatar>
-          <img src={Cpu5} className={classes.icon} />
+          <img src={Cpu5} className={classes.icon} alt=''/>
         </ListItemAvatar>
         <ListItemText
           primary={`Cpu5 x${props.countCpu5}`}
-          secondary={`$${188 * props.countCpu5}`}
+          secondary={`$${(188 * props.countCpu5).toLocaleString()}`}
+          className={classes.text}
         />
         <Button
           variant="contained"

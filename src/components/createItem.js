@@ -38,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 380,
     backgroundColor: "#f8feff",
     margin: 50,
+    display: 'flex',
+    justifyContent: 'center',
+    justifySelf: 'center',
+    alignSelf: 'center'
   },
   media: {
     height: 140,
@@ -72,7 +76,7 @@ export default function CreateItem(props) {
   }
 
   return (
-    <div>
+    <div className={classes.root}>
       <Card className={classes.roott} style={{ height: 500 }}>
         <form onSubmit={handleSubmit}>
           <CardActionArea>
@@ -88,7 +92,7 @@ export default function CreateItem(props) {
                 variant="body2"
                 color="textSecondary"
                 component="p"
-                style={{ borderBottom: "1px solid black" }}
+                
               >
                 <TextField
                   label="Item Description"
@@ -101,7 +105,7 @@ export default function CreateItem(props) {
           </CardActionArea>
           <CardActions>
             <Typography variant="h6">
-              $<TextField label="Price" inputRef={userPrice}></TextField>
+              <TextField label={`$ - Price`} inputRef={userPrice}></TextField>
             </Typography>
 
             <fr></fr>

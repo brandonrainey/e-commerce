@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useRef, useLayoutEffect } from "react";
+import { React, useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
@@ -9,11 +9,15 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { Button } from "@material-ui/core";
 
-import SimpleSnackbarCards from "./mysnackbarCards";
+
+import UserSnackbar from "./userSnackbar";
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { db } from "../firebase";
+import Placeholder from './placeholder.png'
+import UserPopup from "./userPopup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,19 +47,47 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 140,
   },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+    width: 1000,
+    height: 796,
+    marginLeft: 460,
+    marginTop: 172,
+    borderRadius: 6,
+  },
+  desc: {
+    maxHeight: '61px',
+    overflowY: 'auto'
+  },
+  userPop: {
+    marginLeft: 'auto'
+  }
 }));
 
 export default function UserItems(props) {
   const classes = useStyles();
-  const isInitialMount = useRef(true);
+  const [loading, setLoading] = useState(false)
 
-  function getItems() {
-    db.collection("userItems").onSnapshot((snapshot) => {
+
+  
+
+  
+
+
+
+
+
+  async function getItems() {
+    setLoading(true)
+    await db.collection("userItems").onSnapshot((snapshot) => {
       const myItems = [];
       snapshot.forEach((doc) => {
         myItems.push(doc.data());
+        props.countUser.push(0)
       });
       props.setItems(myItems);
+      setLoading(false)
     });
   }
 
@@ -65,7 +97,11 @@ export default function UserItems(props) {
 
   return (
     <div className={classes.root}>
+      <Backdrop className={classes.backdrop} open={loading} >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <ImageList rowHeight={180} className={classes.imageList}>
+        
         <ImageListItem
           key="Subheader"
           cols={2}
@@ -80,24 +116,28 @@ export default function UserItems(props) {
               marginRight: 0,
             }}
             cols={2}
+            className='pageTitle'
           >
             User Items
           </Typography>
         </ImageListItem>
 
-        {props.items.map((item) => (
-          <Card className={classes.roott} style={{ height: 320 }}>
+        {props.items.map((item, index) => (
+          <Card className={`${classes.roott} itemBody`} style={{ height: 320, boxShadow:
+            "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px", }}>
             <CardActionArea>
               <CardMedia
                 className={classes.media}
                 title="Contemplative Reptile"
+                image={Placeholder}
               />
               <CardContent>
                 <Typography
                   gutterBottom
                   variant="h5"
                   component="h2"
-                  onClick={() => console.log("clicked")}
+                  onClick={() => console.log(index)}
+                  className='itemTitle'
                 >
                   {item.title}
                 </Typography>
@@ -107,55 +147,44 @@ export default function UserItems(props) {
                   component="p"
                   onClick={() => console.log("clicked")}
                   style={{ borderBottom: "1px solid black" }}
+                  className={'itemText'}
                 >
                   {item.description}
+                 
+                
+
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions>
+            <CardActions style={{ marginTop: 'auto'}}>
               <Typography variant="h6">${item.price}</Typography>
 
-              <fr></fr>
-              <fr></fr>
-              <fr></fr>
-              <fr></fr>
-              <fr></fr>
-              <fr></fr>
-              <fr></fr>
-              <fr></fr>
-              <fr></fr>
-              <fr></fr>
-              <SimpleSnackbarCards
+              <div className='actionsContainer'>
+                <div className='actions'>
+              <UserSnackbar
                 item={item}
                 myItems={props.myItems}
                 countTotal={props.countTotal}
-                count1={props.count1}
-                setCount1={props.setCount1}
-                count2={props.count2}
-                setCount2={props.setCount2}
-                count3={props.count3}
-                setCount3={props.setCount3}
-                count4={props.count4}
-                setCount4={props.setCount4}
-                count5={props.count5}
-                setCount5={props.setCount5}
-                count6={props.count6}
-                setCount6={props.setCount6}
-                count7={props.count7}
-                setCount7={props.setCount7}
-                count8={props.count8}
-                setCount8={props.setCount8}
+                countUser={props.countUser}
+                setCountUser={props.setCountUser}
+                index={index}
               />
-              <Button
-                variant="contained"
-                onClick={() => console.log(props.items)}
-              >
-                test
-              </Button>
-              <fr></fr>
-              <fr></fr>
-              <fr></fr>
-              <fr></fr>
+              
+              <div className='learnMore'>
+                <UserPopup
+                index={index} 
+                item={item}
+                myItems={props.myItems}
+                countTotal={props.countTotal}
+                countUser={props.countUser}
+                setCountUser={props.setCountUser}
+                className={classes.userPop}
+              />
+                </div>
+              
+                </div>
+                
+              </div>
             </CardActions>
           </Card>
         ))}

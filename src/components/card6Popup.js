@@ -4,12 +4,12 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
+
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 
-import InfoIcon from "@material-ui/icons/Info";
+
 import Gcard6 from "./gcard6.png";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -50,12 +50,7 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-const DialogActions = withStyles((theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1),
-  },
-}))(MuiDialogActions);
+
 
 const useStyles = makeStyles((theme) => ({
   img: {
@@ -89,7 +84,7 @@ export default function Card1Popup(props) {
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           Cool Card Uno
           <br></br>
-          <img src={Gcard6} className={classes.img} />
+          <img src={Gcard6} className={`${classes.img} popupImg`} alt=''/>
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>

@@ -1,10 +1,9 @@
 import React, { useRef, useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
+
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+
 
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -16,13 +15,12 @@ import Alert from "@material-ui/lab/Alert";
 
 import { useAuth } from "../contexts/AuthContext";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  
   Link,
-  BrowserRouter,
   useHistory,
 } from "react-router-dom";
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function Copyright() {
   return (
@@ -58,6 +56,15 @@ const useStyles = makeStyles((theme) => ({
   box: {
     backgroundColor: "#d0dae8",
   },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+    width: 444,
+    height: 434,
+    marginLeft: 738,
+    marginTop: 236,
+    
+  },
 }));
 
 export default function Login() {
@@ -88,7 +95,11 @@ export default function Login() {
   }
 
   return (
+    
     <Container component="main" maxWidth="xs" className={classes.box}>
+      <Backdrop className={classes.backdrop} open={loading} >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -125,10 +136,7 @@ export default function Login() {
             inputRef={passwordRef}
           />
 
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+         
           <Button
             type="submit"
             fullWidth

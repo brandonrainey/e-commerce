@@ -3,8 +3,7 @@ import React from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import ImageIcon from "@material-ui/icons/Image";
+
 
 import { Button } from "@material-ui/core";
 import Gcard2 from "./gcard2.png";
@@ -30,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#d0dae8",
     borderBottom: "1px solid black",
   },
+  text: {
+    textAlign: 'center'
+  }
 }));
 
 export default function ListItem2(props) {
@@ -39,11 +41,12 @@ export default function ListItem2(props) {
     return (
       <ListItem className={classes.cartColor}>
         <ListItemAvatar>
-          <img src={Gcard2} className={classes.icon} />
+          <img src={Gcard2} className={classes.icon} alt=''/>
         </ListItemAvatar>
         <ListItemText
           primary={`Card2 x${props.count2}`}
-          secondary={`$${45 * props.count2}`}
+          secondary={`$${(45 * props.count2).toLocaleString()}`}
+          className={classes.text}
         />
         <Button
           variant="contained"

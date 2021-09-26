@@ -12,7 +12,7 @@ const app = firebase.initializeApp({
 });
 
 // firebase.firestore().settings({ experimentalForceLongPolling: true });
-firebase.firestore.setLogLevel("debug");
+// firebase.firestore.setLogLevel("debug");
 
 export const auth = app.auth();
 export const db = app.firestore();

@@ -58,6 +58,19 @@ html,
   justify-content: center;
 }
 
+.totalWrap {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.userKart {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 a {
   text-decoration: none;
 }
@@ -108,11 +121,11 @@ a {
 }
 
 .total {
-  width: "100%";
+  width: 100%;
   max-width: 600px;
   background-color: #d0dae8;
   padding: 0;
-  margin-left: 34.25%;
+  
   text-align: center;
   font-size: 30px;
 }
@@ -198,3 +211,107 @@ a {
 .MuiGridListTileBar-title {
   font-size: 26px !important;
 }
+
+.createImg {
+  transition: none;
+  margin-top: -10px;
+  background-color: cornflowerblue;
+}
+
+
+
+  @media (max-width: 480px) {
+    .siteName {
+      font-size: 24px
+    }
+
+    .itemBody {
+      width: 100% !important
+    }
+
+    .itemText {
+      display: none;
+    }
+
+    .learnMore {
+      margin-left: 0 !important;
+    }
+
+    .itemTitle {
+      border-bottom: 1px solid black;
+    }
+
+    .pageTitle {
+      width: 300px !important;
+      margin-left: 0 !important;
+      
+    }
+
+    html, body {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    .emptyCart {
+      display: flex;
+      flex-direction: column;
+      margin-left: 30px !important;
+      height: 100% !important;
+      align-items: center !important;
+    }
+
+    .popupImg {
+      width: 100% !important;
+    }
+
+    .userEmail {
+      font-size: 30px !important;
+    }
+
+    .cartImg {
+      width: 100px !important;
+      height: 75px !important;
+    }
+
+    .cartButton {
+      height: 50px !important;
+      width: 50px !important;
+      font-size: 10px !important;
+    }
+
+    
+
+
+
+    
+}
+
+.siteName {
+  font-size: 10px;
+}
+
+.MuiCardActions-root {
+  margin-top: auto !important;
+}
+
+.actionsContainer  {
+  display: flex;
+  flex-direction: row;
+}
+
+.actions {
+  display: flex;
+  
+  height: 48px;
+  margin-left: auto;
+}
+
+.learnMore {
+  margin-left: 50px;
+}
+
+.dropdown {
+  z-index: 100 !important;
+}
+
+

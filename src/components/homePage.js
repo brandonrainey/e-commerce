@@ -4,24 +4,23 @@ import IconButton from "@material-ui/core/IconButton";
 
 import { GridList, GridListTile, GridListTileBar } from "@material-ui/core";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  
   Link,
-  BrowserRouter,
 } from "react-router-dom";
 
 import HomeImg1 from "./homeImg1.png";
-import HomeImg2 from "./homeImg2.png";
+
 import HomeImg3 from "./homeImg3.png";
 
 import Cpu1 from "./cpu1.png";
+
+import { v4 as uuidv4 } from "uuid";
 
 const imgData = [
   {
     img1: [HomeImg1, Cpu1, HomeImg3],
 
-    title: ["Cards", "Cpus", "Other"],
+    title: ["Cards", "Cpus", "User Items"],
     author: "author",
     featured: true,
     cols: 2,
@@ -29,7 +28,7 @@ const imgData = [
   },
   {
     img1: [Cpu1, HomeImg3, HomeImg1],
-    title: ["Cpus", "Other", "Cards"],
+    title: ["Cpus", "User Items", "Cards"],
     author: "author",
     featured: false,
     cols: 1,
@@ -37,7 +36,7 @@ const imgData = [
   },
   {
     img1: [HomeImg3, HomeImg1, Cpu1],
-    title: ["Other", "Cards", "Cpus"],
+    title: ["User Items", "Cards", "Cpus"],
     author: "author",
     featured: false,
     cols: 1,
@@ -56,7 +55,7 @@ export default function HomePage() {
     setActive(!isActive);
   };
 
-  useEffect(() => {
+  function rotate() {
     setTimeout(() => {
       if (imgNum === 2) {
         setImgNum(0);
@@ -66,6 +65,10 @@ export default function HomePage() {
         setImgNum(2);
       }
     }, 8000);
+  }
+
+  useEffect(() => {
+    rotate()
 
     handleToggle();
   }, [imgNum]);
@@ -75,33 +78,36 @@ export default function HomePage() {
       <GridList
         cellHeight={350}
         cols={2}
-        style={{ width: 1200, height: 850, padding: 0, zIndex: -1 }}
+        style={{ width: 1200, height: 850, padding: 0,  zIndex: 1}}
         spacing={75}
       >
-        {imgData.map((item) => (
+        {imgData.map((item, index) => (
           <GridListTile key={item.id} cols={item.cols || 1}>
             <img
-              src={item.img1[imgNum]}
+              src={item.img1[index]}
               alt={item.title}
               className={`imggg, ${isActive ? "fadeee" : "fadee"}`}
               ref={fadeImg}
-              key={+new Date()}
+              key={uuidv4()}
             />
             <GridListTileBar
-              title={item.title[imgNum]}
+              title={item.title[index]}
+              
               actionIcon={
-                <IconButton>
-                  <Link
+                
+                <IconButton >
+                  <Link 
                     to={() => {
-                      if (item.img1[imgNum] === HomeImg1) {
+                      if (item.img1[index] === HomeImg1) {
                         return "/shop";
-                      } else if (item.img1[imgNum] === HomeImg2) {
+                      } if (item.img1[index] === Cpu1) {
                         return "/cpu";
-                      } else if (item.img1[imgNum] === HomeImg3) {
+                      } else if (item.img1[index] === HomeImg3) {
                         return "/useritems";
                       }
                     }}
                     className="menuLinks"
+                    style={{ zIndex: 2}}
                   >
                     Shop
                   </Link>

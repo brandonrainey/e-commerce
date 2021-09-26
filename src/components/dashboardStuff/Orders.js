@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect, createRef } from "react";
-import Link from "@material-ui/core/Link";
+import React, { useRef, createRef, useState } from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -10,20 +10,30 @@ import Title from "./Title";
 import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { db } from "../../firebase";
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-function preventDefault(event) {
-  event.preventDefault();
-}
+
+
 
 const useStyles = makeStyles((theme) => ({
   seeMore: {
     marginTop: theme.spacing(3),
   },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+    width: 444,
+    height: 434,
+    marginLeft: 738,
+    marginTop: 236,
+    
+  },
 }));
 
 export default function Orders(props) {
   const classes = useStyles();
-
+  const [loading, setLoading] = useState(false)
   const refs = useRef([]);
 
  
@@ -34,6 +44,9 @@ export default function Orders(props) {
 
   return (
     <React.Fragment>
+      <Backdrop className={classes.backdrop} open={loading} >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <Title>My Items</Title>
       <Table size="small">
         <TableHead>
@@ -72,12 +85,14 @@ export default function Orders(props) {
                   variant="contained"
                   id={row.id}
                   onClick={() => {
+                    setLoading(true)
                      db.collection("userItems").doc(`${row.id}`).update({
                       title: refs.current[i].current.value,
                       description: refs.current[i].current.value,
                       price: refs.current[i].current.value,
                       id: row.id,
-                    });
+                    })
+                    setLoading(false)
                   }}
                 >
                   Save Changes

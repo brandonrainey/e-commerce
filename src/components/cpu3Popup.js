@@ -4,12 +4,12 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
+
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 
-import InfoIcon from "@material-ui/icons/Info";
+
 import Cpu3 from "./cpu3.png";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -58,12 +58,7 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-const DialogActions = withStyles((theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1),
-  },
-}))(MuiDialogActions);
+
 
 export default function Cpu2Popup(props) {
   const [open, setOpen] = React.useState(false);
@@ -90,7 +85,7 @@ export default function Cpu2Popup(props) {
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           Card2
           <br></br>
-          <img src={Cpu3} className={classes.img} />
+          <img src={Cpu3} className={`${classes.img} popupImg`} alt=''/>
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>

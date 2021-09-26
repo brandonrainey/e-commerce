@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -14,7 +14,7 @@ import Orders from "./dashboardStuff/Orders";
 import { Button } from "@material-ui/core";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory, Link } from "react-router-dom";
-import { db } from "../firebase";
+
 
 function Copyright() {
   return (
@@ -108,22 +108,17 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  main: {
+    display: "flex",
+
+    flexWrap: "wrap",
+  },
 }));
 
 export default function Dashboard(props) {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
-
-  function getItems() {
-    db.collection("userItems").onSnapshot((snapshot) => {
-      const myItems = [];
-      snapshot.forEach((doc) => {
-        myItems.push(doc.data());
-      });
-      props.setItems(myItems);
-    });
-  }
 
   async function handleLogout() {
     setError("");
@@ -139,17 +134,10 @@ export default function Dashboard(props) {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(!open);
-  };
+  
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  //  useEffect(() => {
-  //   getItems();
-  // },[]);
+  
 
   return (
     <div className={classes.root}>
@@ -158,22 +146,51 @@ export default function Dashboard(props) {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper} style={{}}>
-                <Link to="/updateprofile">
-                  <Button variant="contained">Update Profile</Button>
-                </Link>
-
-                <Button variant="contained" onClick={handleLogout} style={{}}>
-                  Logout {currentUser.email}
-                </Button>
+            <Grid
+              item
+              xs={12}
+              md={8}
+              lg={9}
+              className={classes.main}
+              style={{}}
+            >
+              <Paper style={{ width: "100%", flexDirection: "row" }}>
+                <Typography variant="h3" align='center' className='userEmail'>
+                  {currentUser.email}'s Dashboard
+                </Typography>
               </Paper>
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Button variant="contained">
-                  <Link to="/createitem">Create Item</Link>
+              <Paper
+                className={fixedHeightPaper}
+                style={{ overflow: "hidden" }}
+              >
+                {/* <img src={createImg} className='createImg'/> */}
+                <Link to="/createitem">
+                  <Button
+                    variant="contained"
+                    style={{ width: "100%", marginTop: 8 }}
+                  >
+                    Create Item
+                  </Button>
+                </Link>
+
+                <Link to="/updateprofile">
+                  <Button
+                    variant="contained"
+                    style={{ width: "100%", marginTop: 8 }}
+                  >
+                    Update Profile
+                  </Button>
+                </Link>
+
+                <Button
+                  variant="contained"
+                  onClick={handleLogout}
+                  style={{ width: "100%", marginTop: "auto" }}
+                >
+                  Logout
                 </Button>
               </Paper>
             </Grid>

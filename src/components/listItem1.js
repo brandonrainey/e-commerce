@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#d0dae8",
     borderBottom: "1px solid black",
   },
+  text: {
+    textAlign: 'center'
+  }
 }));
 
 export default function ListItem1(props) {
@@ -25,18 +28,20 @@ export default function ListItem1(props) {
 
   if (props.count1 > 0) {
     return (
-      <ListItem className={classes.cartColor}>
+      <ListItem className={`${classes.cartColor} cartItem`}>
         <ListItemAvatar>
-          <img src={Gcard1} className={classes.icon} />
+          <img src={Gcard1} className={`${classes.icon} cartImg`} alt=''/>
         </ListItemAvatar>
         <ListItemText
           primary={`Card1 x${props.count1}`}
-          secondary={`$${100 * props.count1}`}
+          secondary={`$${(100 * props.count1).toLocaleString()}`}
+          className={classes.text}
         />
         <Button
           variant="contained"
           color="secondary"
           onClick={() => props.setCount1(props.count1 - 1)}
+          className='cartButton'
         >
           Remove From Cart
         </Button>
