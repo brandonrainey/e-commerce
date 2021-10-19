@@ -1,10 +1,7 @@
 import React from "react";
-
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-
-
 import { Button } from "@material-ui/core";
 import Gcard3 from "./gcard3.png";
 import { makeStyles } from "@material-ui/core/styles";
@@ -29,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "1px solid black",
   },
   text: {
-    textAlign: 'center'
-  }
+    textAlign: "center",
+  },
 }));
 
 export default function ListItem3(props) {
@@ -40,7 +37,7 @@ export default function ListItem3(props) {
     return (
       <ListItem className={classes.cartColor}>
         <ListItemAvatar>
-          <img src={Gcard3} className={classes.icon} alt=''/>
+          <img src={Gcard3} className={classes.icon} alt="" />
         </ListItemAvatar>
         <ListItemText
           primary={`Card3 x${props.count3}`}

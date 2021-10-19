@@ -1,20 +1,15 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-
 import Box from "@material-ui/core/Box";
-
 import Typography from "@material-ui/core/Typography";
-
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-
 import Orders from "./dashboardStuff/Orders";
 import { Button } from "@material-ui/core";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory, Link } from "react-router-dom";
-
 
 function Copyright() {
   return (
@@ -122,7 +117,6 @@ export default function Dashboard(props) {
 
   async function handleLogout() {
     setError("");
-
     try {
       await logout();
       console.log(currentUser);
@@ -134,10 +128,8 @@ export default function Dashboard(props) {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -155,7 +147,7 @@ export default function Dashboard(props) {
               style={{}}
             >
               <Paper style={{ width: "100%", flexDirection: "row" }}>
-                <Typography variant="h3" align='center' className='userEmail'>
+                <Typography variant="h3" align="center" className="userEmail">
                   {currentUser.email}'s Dashboard
                 </Typography>
               </Paper>

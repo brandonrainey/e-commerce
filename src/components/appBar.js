@@ -14,11 +14,7 @@ import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
-import {
-  
-  Link,
-} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import { Badge } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
@@ -157,7 +153,7 @@ export default function SearchAppBar(props) {
                       id="menu-list-grow"
                       onKeyDown={handleListKeyDown}
                       className={`${classes.drop} dropdown`}
-                      style={{ zIndex: 999, position: 'relative' }}
+                      style={{ zIndex: 999, position: "relative" }}
                     >
                       <Link to="/home">
                         <MenuItem onClick={handleClose} className="links">

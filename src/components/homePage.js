@@ -1,25 +1,15 @@
 import { React, useState, useEffect, useRef } from "react";
-
 import IconButton from "@material-ui/core/IconButton";
-
 import { GridList, GridListTile, GridListTileBar } from "@material-ui/core";
-import {
-  
-  Link,
-} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import HomeImg1 from "./homeImg1.png";
-
 import HomeImg3 from "./homeImg3.png";
-
 import Cpu1 from "./cpu1.png";
-
 import { v4 as uuidv4 } from "uuid";
 
 const imgData = [
   {
     img1: [HomeImg1, Cpu1, HomeImg3],
-
     title: ["Cards", "Cpus", "User Items"],
     author: "author",
     featured: true,
@@ -55,8 +45,8 @@ export default function HomePage() {
     setActive(!isActive);
   };
 
-  function rotate() {
-    setTimeout(() => {
+  useEffect(() => {
+    const interval = setInterval(() => {
       if (imgNum === 2) {
         setImgNum(0);
       } else if (imgNum === 0) {
@@ -65,12 +55,10 @@ export default function HomePage() {
         setImgNum(2);
       }
     }, 8000);
-  }
-
-  useEffect(() => {
-    rotate()
 
     handleToggle();
+
+    return () => clearInterval(interval);
   }, [imgNum]);
 
   return (
@@ -78,36 +66,35 @@ export default function HomePage() {
       <GridList
         cellHeight={350}
         cols={2}
-        style={{ width: 1200, height: 850, padding: 0,  zIndex: 1}}
+        style={{ width: 1200, height: 850, padding: 0, zIndex: 1 }}
         spacing={75}
       >
         {imgData.map((item, index) => (
           <GridListTile key={item.id} cols={item.cols || 1}>
             <img
-              src={item.img1[index]}
+              src={item.img1[imgNum]}
               alt={item.title}
               className={`imggg, ${isActive ? "fadeee" : "fadee"}`}
               ref={fadeImg}
               key={uuidv4()}
             />
             <GridListTileBar
-              title={item.title[index]}
-              
+              title={item.title[imgNum]}
               actionIcon={
-                
-                <IconButton >
-                  <Link 
+                <IconButton>
+                  <Link
                     to={() => {
-                      if (item.img1[index] === HomeImg1) {
+                      if (item.img1[imgNum] === HomeImg1) {
                         return "/shop";
-                      } if (item.img1[index] === Cpu1) {
+                      }
+                      if (item.img1[imgNum] === Cpu1) {
                         return "/cpu";
-                      } else if (item.img1[index] === HomeImg3) {
+                      } else if (item.img1[imgNum] === HomeImg3) {
                         return "/useritems";
                       }
                     }}
                     className="menuLinks"
-                    style={{ zIndex: 2}}
+                    style={{ zIndex: 2 }}
                   >
                     Shop
                   </Link>

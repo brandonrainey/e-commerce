@@ -15,7 +15,6 @@ export default function SimpleSnackbar(props) {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 
@@ -54,7 +53,6 @@ export default function SimpleSnackbar(props) {
       >
         Add to cart
       </Button>
-
       <Snackbar
         anchorOrigin={{
           vertical: "bottom",

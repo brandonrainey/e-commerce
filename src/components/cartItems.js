@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-
 import ListItem1 from "./listItem1";
 import ListItem2 from "./listItem2";
 import ListItem3 from "./listItem3";
@@ -11,7 +10,6 @@ import ListItem5 from "./listItem5";
 import ListItem6 from "./listItem6";
 import ListItem7 from "./listItem7";
 import ListItem8 from "./listItem8";
-
 import CpuItem1 from "./cpuItem1";
 import CpuItem2 from "./cpuItem2";
 import CpuItem3 from "./cpuItem3";
@@ -20,13 +18,10 @@ import CpuItem5 from "./cpuItem5";
 import CpuItem6 from "./cpuItem6";
 import CpuItem7 from "./cpuItem7";
 import CpuItem8 from "./cpuItem8";
-
-
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-
 import { Button } from "@material-ui/core";
-import Placeholder from './placeholder.png'
+import Placeholder from "./placeholder.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,13 +33,11 @@ const useStyles = makeStyles((theme) => ({
   nopad: {
     paddingTop: 0,
     paddingBottom: 0,
-    
   },
   user: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
     backgroundColor: "#d0dae8",
-    
     paddingTop: 0,
   },
   icon: {
@@ -53,12 +46,10 @@ const useStyles = makeStyles((theme) => ({
   },
   myUser: {
     borderBottom: "1px solid black",
-    
-    
   },
   text: {
-    textAlign: 'center'
-  }
+    textAlign: "center",
+  },
 }));
 
 export default function CartItems(props) {
@@ -67,8 +58,8 @@ export default function CartItems(props) {
   const handleUpdate = (index, item) => {
     const newItems = [...props.countUser];
     newItems[index] = item;
-    props.setCountUser(newItems)
-}
+    props.setCountUser(newItems);
+  };
 
   return (
     <div className="kart">
@@ -129,7 +120,6 @@ export default function CartItems(props) {
             setCount8={props.setCount8}
           />
         </ListItem>
-
         <ListItem className={classes.nopad}>
           <CpuItem1
             countTotal={props.countTotal}
@@ -187,32 +177,33 @@ export default function CartItems(props) {
           />
         </ListItem>
         <ListItem className={classes.user}>
-       { props.countUser.map((item, index) => {
-        if (item > 0) {
-            return (
-             
-      <ListItem className={classes.myUser} >
-        <ListItemAvatar>
-        <img src={Placeholder} className={classes.icon} alt=''/>
-        </ListItemAvatar>
-        <ListItemText
-          primary={`${props.items[index].title} x${props.countUser[index]}`}
-          secondary={`$${(props.items[index].price * props.countUser[index]).toLocaleString()}`}
-          className={classes.text}
-        />
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => handleUpdate(index, props.countUser[index] - 1)}
-        >
-          Remove From Cart
-        </Button>
-      </ListItem>
-      
-      
-    );
-        } else return null;
-    })}
+          {props.countUser.map((item, index) => {
+            if (item > 0) {
+              return (
+                <ListItem className={classes.myUser}>
+                  <ListItemAvatar>
+                    <img src={Placeholder} className={classes.icon} alt="" />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={`${props.items[index].title} x${props.countUser[index]}`}
+                    secondary={`$${(
+                      props.items[index].price * props.countUser[index]
+                    ).toLocaleString()}`}
+                    className={classes.text}
+                  />
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() =>
+                      handleUpdate(index, props.countUser[index] - 1)
+                    }
+                  >
+                    Remove From Cart
+                  </Button>
+                </ListItem>
+              );
+            } else return null;
+          })}
         </ListItem>
       </List>
     </div>

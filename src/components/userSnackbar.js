@@ -15,33 +15,28 @@ export default function UserSnackbar(props) {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 
   const handleUpdate = (index, item) => {
-      const newItems = [...props.countUser];
-      newItems[index] = item;
-      props.setCountUser(newItems)
-  }
+    const newItems = [...props.countUser];
+    newItems[index] = item;
+    props.setCountUser(newItems);
+  };
 
   return (
-    <div style={{ marginLeft: 'auto'}}>
+    <div style={{ marginLeft: "auto" }}>
       <Button
         size="small"
         color="primary"
         onClick={() => {
-            
-            console.log(props.countUser)
-            handleUpdate(props.index, props.countUser[props.index] + 1);
-            handleClick();
-            
-          
+          console.log(props.countUser);
+          handleUpdate(props.index, props.countUser[props.index] + 1);
+          handleClick();
         }}
       >
         Add to cart
       </Button>
-
       <Snackbar
         anchorOrigin={{
           vertical: "bottom",
@@ -54,7 +49,7 @@ export default function UserSnackbar(props) {
         action={
           <React.Fragment>
             <Button
-            style={{ color: "green" }}
+              style={{ color: "green" }}
               color="secondary"
               size="small"
               onClick={() => {

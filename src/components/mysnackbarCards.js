@@ -15,7 +15,6 @@ export default function SimpleSnackbarCards(props) {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 

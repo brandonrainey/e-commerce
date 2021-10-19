@@ -1,11 +1,8 @@
 import React from "react";
-
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-
 import { Button } from "@material-ui/core";
-
 import { makeStyles } from "@material-ui/core/styles";
 import Gcard1 from "./gcard1.png";
 
@@ -19,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "1px solid black",
   },
   text: {
-    textAlign: 'center'
-  }
+    textAlign: "center",
+  },
 }));
 
 export default function ListItem1(props) {
@@ -30,7 +27,7 @@ export default function ListItem1(props) {
     return (
       <ListItem className={`${classes.cartColor} cartItem`}>
         <ListItemAvatar>
-          <img src={Gcard1} className={`${classes.icon} cartImg`} alt=''/>
+          <img src={Gcard1} className={`${classes.icon} cartImg`} alt="" />
         </ListItemAvatar>
         <ListItemText
           primary={`Card1 x${props.count1}`}
@@ -41,7 +38,7 @@ export default function ListItem1(props) {
           variant="contained"
           color="secondary"
           onClick={() => props.setCount1(props.count1 - 1)}
-          className='cartButton'
+          className="cartButton"
         >
           Remove From Cart
         </Button>

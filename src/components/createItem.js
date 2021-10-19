@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { v4 as uuidv4 } from "uuid";
-
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -10,7 +9,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
-
 import { useHistory } from "react-router-dom";
 import { db } from "../firebase";
 
@@ -38,10 +36,10 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 380,
     backgroundColor: "#f8feff",
     margin: 50,
-    display: 'flex',
-    justifyContent: 'center',
-    justifySelf: 'center',
-    alignSelf: 'center'
+    display: "flex",
+    justifyContent: "center",
+    justifySelf: "center",
+    alignSelf: "center",
   },
   media: {
     height: 140,
@@ -53,7 +51,6 @@ export default function CreateItem(props) {
   const userTitle = useRef();
   const userDescription = useRef();
   const userPrice = useRef();
-
   const history = useHistory();
 
   function addItem() {
@@ -69,9 +66,7 @@ export default function CreateItem(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     addItem();
-
     history.push("/useritems");
   }
 
@@ -88,12 +83,7 @@ export default function CreateItem(props) {
               <Typography gutterBottom variant="h5" component="h2">
                 <TextField label="Item Name" inputRef={userTitle}></TextField>
               </Typography>
-              <Typography
-                variant="body2"
-                color="textSecondary"
-                component="p"
-                
-              >
+              <Typography variant="body2" color="textSecondary" component="p">
                 <TextField
                   label="Item Description"
                   multiline
@@ -108,21 +98,6 @@ export default function CreateItem(props) {
               <TextField label={`$ - Price`} inputRef={userPrice}></TextField>
             </Typography>
 
-            <fr></fr>
-            <fr></fr>
-            <fr></fr>
-            <fr></fr>
-            <fr></fr>
-            <fr></fr>
-            <fr></fr>
-            <fr></fr>
-            <fr></fr>
-            <fr></fr>
-
-            <fr></fr>
-            <fr></fr>
-            <fr></fr>
-            <fr></fr>
             <Button variant="contained" type="submit">
               Create
             </Button>

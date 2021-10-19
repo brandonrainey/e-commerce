@@ -1,5 +1,4 @@
 import React, { useRef, createRef, useState } from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -12,9 +11,6 @@ import { TextField } from "@material-ui/core";
 import { db } from "../../firebase";
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
-
-
 
 const useStyles = makeStyles((theme) => ({
   seeMore: {
@@ -36,11 +32,7 @@ export default function Orders(props) {
   const [loading, setLoading] = useState(false)
   const refs = useRef([]);
 
- 
-
   refs.current = props.items.map((_, i) => refs.current[i] ?? createRef());
-
- 
 
   return (
     <React.Fragment>
@@ -54,7 +46,6 @@ export default function Orders(props) {
             <TableCell>Title</TableCell>
             <TableCell>Description</TableCell>
             <TableCell>Price</TableCell>
-            <TableCell>Img</TableCell>
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>

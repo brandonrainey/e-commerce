@@ -1,10 +1,7 @@
 import React, { useRef, useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-
 import TextField from "@material-ui/core/TextField";
-
-
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -12,15 +9,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Alert from "@material-ui/lab/Alert";
-
 import { useAuth } from "../contexts/AuthContext";
-import {
-  
-  Link,
-  useHistory,
-} from "react-router-dom";
-import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import { Link, useHistory } from "react-router-dom";
+import Backdrop from "@material-ui/core/Backdrop";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Copyright() {
   return (
@@ -58,12 +50,11 @@ const useStyles = makeStyles((theme) => ({
   },
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
-    color: '#fff',
+    color: "#fff",
     width: 444,
     height: 434,
     marginLeft: 738,
     marginTop: 236,
-    
   },
 }));
 
@@ -71,7 +62,6 @@ export default function Login() {
   const classes = useStyles();
   const emailRef = useRef();
   const passwordRef = useRef();
-
   const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -80,7 +70,6 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     try {
       setError("");
       setLoading(true);
@@ -95,9 +84,8 @@ export default function Login() {
   }
 
   return (
-    
     <Container component="main" maxWidth="xs" className={classes.box}>
-      <Backdrop className={classes.backdrop} open={loading} >
+      <Backdrop className={classes.backdrop} open={loading}>
         <CircularProgress color="inherit" />
       </Backdrop>
       <div className={classes.paper}>
@@ -136,7 +124,6 @@ export default function Login() {
             inputRef={passwordRef}
           />
 
-         
           <Button
             type="submit"
             fullWidth

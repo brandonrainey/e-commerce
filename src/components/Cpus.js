@@ -2,17 +2,13 @@ import { React, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
-
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-
 import SimpleSnackbar from "./mysnackbar";
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -90,7 +86,7 @@ export default function Cpus(props) {
               marginRight: 0,
             }}
             cols={2}
-            className='pageTitle'
+            className="pageTitle"
           >
             Cpus
           </Typography>
@@ -98,7 +94,7 @@ export default function Cpus(props) {
 
         {props.myCpuItems.map((item) => (
           <Card
-          className={`${classes.roott} itemBody`}
+            className={`${classes.roott} itemBody`}
             style={{
               boxShadow:
                 "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
@@ -118,7 +114,7 @@ export default function Cpus(props) {
                   variant="h5"
                   component="h2"
                   onClick={() => console.log("clicked")}
-                  className='itemTitle'
+                  className="itemTitle"
                 >
                   {item.title}
                 </Typography>
@@ -128,7 +124,7 @@ export default function Cpus(props) {
                   component="p"
                   onClick={() => console.log("clicked")}
                   style={{ borderBottom: "1px solid black" }}
-                  className={'itemText'}
+                  className={"itemText"}
                 >
                   Lizards are a widespread group of squamate reptiles, with over
                   6,000 species, ranging across all continents except Antarctica
@@ -136,37 +132,38 @@ export default function Cpus(props) {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Typography variant="h6">${item.price}</Typography>
+              <Typography variant="h6" style={{ marginBottom: "20px" }}>
+                ${item.price}
+              </Typography>
 
-              <div className='actionsContainer'>
-                <div className='actions'>
-              <SimpleSnackbar
-                item={item}
-                myCpuItems={props.myCpuItems}
-                countTotal={props.countTotal}
-                countCpu1={props.countCpu1}
-                setCountCpu1={props.setCountCpu1}
-                countCpu2={props.countCpu2}
-                setCountCpu2={props.setCountCpu2}
-                countCpu3={props.countCpu3}
-                setCountCpu3={props.setCountCpu3}
-                countCpu4={props.countCpu4}
-                setCountCpu4={props.setCountCpu4}
-                countCpu5={props.countCpu5}
-                setCountCpu5={props.setCountCpu5}
-                countCpu6={props.countCpu6}
-                setCountCpu6={props.setCountCpu6}
-                countCpu7={props.countCpu7}
-                setCountCpu7={props.setCountCpu7}
-                countCpu8={props.countCpu8}
-                setCountCpu8={props.setCountCpu8}
-              />
-              <div className='learnMore'>
-                {item.info}
+              <div
+                className="actionsContainer"
+                style={{ display: "flex", marginLeft: "auto" }}
+              >
+                <div className="actions">
+                  <SimpleSnackbar
+                    item={item}
+                    myCpuItems={props.myCpuItems}
+                    countTotal={props.countTotal}
+                    countCpu1={props.countCpu1}
+                    setCountCpu1={props.setCountCpu1}
+                    countCpu2={props.countCpu2}
+                    setCountCpu2={props.setCountCpu2}
+                    countCpu3={props.countCpu3}
+                    setCountCpu3={props.setCountCpu3}
+                    countCpu4={props.countCpu4}
+                    setCountCpu4={props.setCountCpu4}
+                    countCpu5={props.countCpu5}
+                    setCountCpu5={props.setCountCpu5}
+                    countCpu6={props.countCpu6}
+                    setCountCpu6={props.setCountCpu6}
+                    countCpu7={props.countCpu7}
+                    setCountCpu7={props.setCountCpu7}
+                    countCpu8={props.countCpu8}
+                    setCountCpu8={props.setCountCpu8}
+                  />
+                  <div className="learnMore">{item.info}</div>
                 </div>
-              
-                </div>
-                
               </div>
             </CardActions>
           </Card>

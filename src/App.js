@@ -5,11 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import PrimarySearchAppBar from "./components/appBar";
 import { Typography } from "@material-ui/core";
 import TitlebarImageList from "./components/titlebarImageList";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./components/homePage";
 import Cart from "./components/cart";
 import Cpus from "./components/Cpus";
@@ -29,7 +25,6 @@ import Cpu5 from "./components/cpu5.png";
 import Cpu6 from "./components/cpu6.png";
 import Cpu7 from "./components/cpu7.png";
 import Cpu8 from "./components/cpu8.png";
-
 import Card1Popup from "./components/card1Popup";
 import Card2Popup from "./components/card2Popup";
 import Card3Popup from "./components/card3Popup";
@@ -38,7 +33,6 @@ import Card5Popup from "./components/card5Popup";
 import Card6Popup from "./components/card6Popup";
 import Card7Popup from "./components/card7Popup";
 import Card8Popup from "./components/card8Popup";
-
 import Cpu1Popup from "./components/cpu1Popup";
 import Cpu2Popup from "./components/cpu2Popup";
 import Cpu3Popup from "./components/cpu3Popup";
@@ -50,7 +44,6 @@ import Cpu8Popup from "./components/cpu8Popup";
 import SimpleSnackbar from "./components/mysnackbar";
 import SignUp from "./components/signUp";
 import Dashboard from "./components/Dashboard";
-
 import { AuthProvider } from "./contexts/AuthContext";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
@@ -59,8 +52,7 @@ import CreateItem from "./components/createItem";
 import UserItems from "./components/userItems";
 import UpdateProfile from "./components/UpdateProfile";
 import { db } from "./firebase";
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles({
   box: {
@@ -69,7 +61,6 @@ const useStyles = makeStyles({
     justifyContent: "center",
     textAlign: "center",
     fontWeight: "bold",
-    
   },
 });
 
@@ -240,7 +231,7 @@ function App() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [searchResultsUser, setSearchResultsUser] = useState([])
+  const [searchResultsUser, setSearchResultsUser] = useState([]);
 
   const [searchResultsCpu, setSearchResultsCpu] = useState([]);
 
@@ -266,9 +257,7 @@ function App() {
     countCpu8,
   ]);
 
-
-
-  const userTotal = countUser.reduce((a,v) => a = a + v, 0)
+  const userTotal = countUser.reduce((a, v) => (a = a + v), 0);
 
   const countTotal =
     count1 +
@@ -296,7 +285,7 @@ function App() {
   const [items, setItems] = useState([]);
   const [createdItem, setCreatedItem] = useState();
 
-  const matches = useMediaQuery('(max-width: 480px)');
+  const matches = useMediaQuery("(max-width: 480px)");
 
   const searchHandler = (searchTerm) => {
     setSearchTerm(searchTerm);
@@ -343,27 +332,32 @@ function App() {
     }
   };
 
-
   function getItems() {
     db.collection("userItems").onSnapshot((snapshot) => {
       const myItems = [];
       snapshot.forEach((doc) => {
         myItems.push(doc.data());
-        countUser.push(0)
+        countUser.push(0);
       });
       setItems(myItems);
     });
   }
 
-   useEffect(() => {
+  useEffect(() => {
     getItems();
-  },[]);
+  }, []);
 
   return (
     <AuthProvider>
       <div className="full">
         <Box className={classes.box}>
-          <Typography variant={matches ? 'h4' : "h1"} className='siteName'>E-COMMERCE</Typography>
+          <Typography
+            variant={matches ? "h4" : "h1"}
+            className="siteName"
+            style={{ fontWeight: 400 }}
+          >
+            E-COMMERCE
+          </Typography>
         </Box>
 
         <Router>
@@ -417,7 +411,6 @@ function App() {
                   setCreatedItem={setCreatedItem}
                   countUser={countUser}
                   setCountUser={setCountUser}
-                  
                   searchTerm={searchTerm}
                   searchKeyword={searchHandlerUser}
                 />
