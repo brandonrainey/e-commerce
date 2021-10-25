@@ -283,8 +283,9 @@ a {
     flex-wrap: wrap !important;
     align-content: center !important;
     justify-content: center !important;
-    height: 800px !important;
-    margin-top: -90px !important;
+    height: 600px !important;
+    margin-top: 20px !important;
+    
   }
 
   .homeCard {
@@ -298,7 +299,7 @@ a {
     justify-content: center !important;
     flex-direction: column !important;
     flex: 1 1 33% !important;
-    z-index: 100 !important;
+    z-index: 1 !important;
     width: 100% !important;
   }
 
@@ -309,12 +310,14 @@ a {
 
   .menuLinks {
     position: relative;
-    z-index: 300 !important;
+    
   }
 
   .tester {
     z-index: 300 !important;
   }
+
+  
 }
 
 .siteName {

@@ -45,18 +45,18 @@ export default function HomePage() {
     setActive(!isActive);
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
+  //  useEffect(() => {
+  //    const interval = setInterval(() => {
   //     if (imgNum === 2) {
-  //       setImgNum(0);
-  //     } else if (imgNum === 0) {
-  //       setImgNum(1);
-  //     } else if (imgNum === 1) {
-  //       setImgNum(2);
-  //     }
-  //   }, 8000);
+  //        setImgNum(0);
+  //      } else if (imgNum === 0) {
+  //        setImgNum(1);
+  //      } else if (imgNum === 1) {
+  //        setImgNum(2);
+  //      }
+  //    }, 8000);
 
-  //   handleToggle();
+  //    handleToggle();
 
   //   return () => clearInterval(interval);
   // }, [imgNum]);

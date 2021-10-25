@@ -115,7 +115,7 @@ export default function SearchAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className='appBar'>
         <Toolbar>
           <IconButton
             ref={anchorRef}
