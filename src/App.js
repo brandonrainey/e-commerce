@@ -171,7 +171,7 @@ function App() {
     },
     {
       img: Cpu2,
-      title: "card2",
+      title: "Gigapower Extra",
       price: 600,
       num: () => setCountCpu2(countCpu2 + 1),
       add: 1,
@@ -179,7 +179,7 @@ function App() {
     },
     {
       img: Cpu3,
-      title: "card3",
+      title: "Turbo V3",
       price: 42,
       num: () => setCountCpu3(countCpu3 + 1),
       add: 2,
@@ -187,7 +187,7 @@ function App() {
     },
     {
       img: Cpu4,
-      title: "card4",
+      title: "Turbo V6",
       price: 150,
       num: () => setCountCpu4(countCpu4 + 1),
       add: 3,
@@ -196,7 +196,7 @@ function App() {
 
     {
       img: Cpu5,
-      title: "card5",
+      title: "Cell Maximum",
       price: 188,
       num: () => setCountCpu5(countCpu5 + 1),
       add: 4,
@@ -204,7 +204,7 @@ function App() {
     },
     {
       img: Cpu6,
-      title: "card6",
+      title: "Precision Delta",
       price: 239,
       num: () => setCountCpu6(countCpu6 + 1),
       add: 5,
@@ -213,7 +213,7 @@ function App() {
 
     {
       img: Cpu7,
-      title: "card7",
+      title: "WaveCoolerx12",
       price: 511,
       num: () => setCountCpu7(countCpu7 + 1),
       add: 6,
@@ -221,7 +221,7 @@ function App() {
     },
     {
       img: Cpu8,
-      title: "card8",
+      title: "LunarSol 8",
       price: 375,
       num: () => setCountCpu8(countCpu8 + 1),
       add: 7,

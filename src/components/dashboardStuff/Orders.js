@@ -49,7 +49,7 @@ export default function Orders(props) {
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody className='tableRow'>
           {props.items.map((row, i) => (
             <TableRow key={row.id}>
               <TableCell>
@@ -71,7 +71,8 @@ export default function Orders(props) {
                 ></TextField>
               </TableCell>
               <TableCell></TableCell>
-              <TableCell align="right">
+              <div className='tableCont'>
+<TableCell align="right">
                 <Button
                   variant="contained"
                   id={row.id}
@@ -99,6 +100,8 @@ export default function Orders(props) {
                   Delete
                 </Button>
               </TableCell>
+              </div>
+              
             </TableRow>
           ))}
         </TableBody>

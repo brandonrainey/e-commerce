@@ -125,8 +125,7 @@ export default function TitlebarImageList(props) {
                   style={{ borderBottom: "1px solid black" }}
                   className={"itemText"}
                 >
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </Typography>
               </CardContent>
             </CardActionArea>
