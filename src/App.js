@@ -108,7 +108,7 @@ function App() {
     },
     {
       img: Gcard3,
-      title: "card3",
+      title: "Overpriced Toaster",
       price: 78,
       num: () => setCount3(count3 + 1),
       info: <Card3Popup />,
@@ -116,7 +116,7 @@ function App() {
     },
     {
       img: Gcard4,
-      title: "card4",
+      title: "Overclocked Powerhouse",
       price: 98,
       num: () => setCount4(count4 + 1),
       info: <Card4Popup />,
@@ -125,7 +125,7 @@ function App() {
 
     {
       img: Gcard5,
-      title: "card5",
+      title: "Turbo Engine Mini",
       price: 300,
       num: () => setCount5(count5 + 1),
       info: <Card5Popup />,
@@ -133,7 +133,7 @@ function App() {
     },
     {
       img: Gcard6,
-      title: "card6",
+      title: "Hyper Drive Accelerator",
       price: 222,
       num: () => setCount6(count6 + 1),
       info: <Card6Popup />,
@@ -142,7 +142,7 @@ function App() {
 
     {
       img: Gcard7,
-      title: "card7",
+      title: "Illumination Generator",
       price: 443,
       num: () => setCount7(count7 + 1),
       info: <Card7Popup />,
@@ -150,7 +150,7 @@ function App() {
     },
     {
       img: Gcard8,
-      title: "card8",
+      title: "RGB XD OC",
       price: 420,
       num: () => setCount8(count8 + 1),
       info: <Card8Popup />,
