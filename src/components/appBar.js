@@ -137,6 +137,7 @@ export default function SearchAppBar(props) {
             anchorEl={anchorRef}
             anchorPosition={{ left: 600, top: 200 }}
             style={{ width: 200, marginTop: 56 }}
+            className='tester'
           >
             {({ TransitionProps, placement }) => (
               <Grow
@@ -153,7 +154,7 @@ export default function SearchAppBar(props) {
                       id="menu-list-grow"
                       onKeyDown={handleListKeyDown}
                       className={`${classes.drop} dropdown`}
-                      style={{ zIndex: 999, position: "relative" }}
+                      style={{ zIndex: 100, position: "relative" }}
                     >
                       <Link to="/home">
                         <MenuItem onClick={handleClose} className="links">

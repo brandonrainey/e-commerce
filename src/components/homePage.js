@@ -45,32 +45,33 @@ export default function HomePage() {
     setActive(!isActive);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (imgNum === 2) {
-        setImgNum(0);
-      } else if (imgNum === 0) {
-        setImgNum(1);
-      } else if (imgNum === 1) {
-        setImgNum(2);
-      }
-    }, 8000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (imgNum === 2) {
+  //       setImgNum(0);
+  //     } else if (imgNum === 0) {
+  //       setImgNum(1);
+  //     } else if (imgNum === 1) {
+  //       setImgNum(2);
+  //     }
+  //   }, 8000);
 
-    handleToggle();
+  //   handleToggle();
 
-    return () => clearInterval(interval);
-  }, [imgNum]);
+  //   return () => clearInterval(interval);
+  // }, [imgNum]);
 
   return (
     <div className="homeContainer">
       <GridList
         cellHeight={350}
         cols={2}
-        style={{ width: 1200, height: 850, padding: 0, zIndex: 1 }}
+        style={{ width: 1200, height: 850, padding: 0}}
         spacing={75}
+        className='gridList'
       >
         {imgData.map((item, index) => (
-          <GridListTile key={item.id} cols={item.cols || 1}>
+          <GridListTile key={item.id} cols={item.cols || 1} className='homeCard'>
             <img
               src={item.img1[imgNum]}
               alt={item.title}
@@ -94,7 +95,7 @@ export default function HomePage() {
                       }
                     }}
                     className="menuLinks"
-                    style={{ zIndex: 2 }}
+                    style={{ zIndex: 200 }}
                   >
                     Shop
                   </Link>

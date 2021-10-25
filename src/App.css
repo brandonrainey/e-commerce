@@ -219,7 +219,8 @@ a {
 
 @media (max-width: 480px) {
   .siteName {
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: 700 !important;
   }
 
   .itemBody {
@@ -274,6 +275,45 @@ a {
     height: 50px !important;
     width: 50px !important;
     font-size: 10px !important;
+  }
+
+  .homeContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    align-content: center !important;
+    justify-content: center !important;
+    height: 800px !important;
+    margin-top: -90px !important;
+  }
+
+  .homeCard {
+    height: 200px !important;
+    width: 100% !important;
+    padding: 18px !important;
+  }
+
+  .gridList {
+    display: flex !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    flex: 1 1 33% !important;
+    z-index: 100 !important;
+    width: 100% !important;
+  }
+
+  .imgg {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .menuLinks {
+    position: relative;
+    z-index: 300 !important;
+  }
+
+  .tester {
+    z-index: 300 !important;
   }
 }
 
