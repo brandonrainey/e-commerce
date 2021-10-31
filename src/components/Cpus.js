@@ -70,7 +70,7 @@ export default function Cpus(props) {
       <ImageList
         rowHeight={180}
         className={classes.imageList}
-        style={{ justifyContent: "center" }}
+        style={{ justifyContent: "center" , overflowX: 'hidden'}}
       >
         <ImageListItem
           key="Subheader"

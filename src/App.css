@@ -4,6 +4,7 @@ html,
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-x: hidden !important;
 }
 
 .MuiImageListItem-item {
@@ -218,6 +219,10 @@ a {
 }
 
 @media (max-width: 480px) {
+
+  .cardPage {
+    overflow-x: hidden !important;
+  }
   .siteName {
     font-size: 30px;
     font-weight: 700 !important;

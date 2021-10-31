@@ -87,7 +87,7 @@ export default function UserItems(props) {
       <Backdrop className={classes.backdrop} open={loading}>
         <CircularProgress color="inherit" />
       </Backdrop>
-      <ImageList rowHeight={180} className={classes.imageList}>
+      <ImageList rowHeight={180} className={classes.imageList} style={{ overflowX: 'hidden'}}>
         <ImageListItem
           key="Subheader"
           cols={2}

@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     overflow: "hidden",
     backgroundColor: "#1e395f",
+    
   },
   imageList: {
     width: 1000,
@@ -68,7 +69,7 @@ export default function TitlebarImageList(props) {
 
   return (
     <div className={classes.root}>
-      <ImageList rowHeight={180} className={classes.imageList}>
+      <ImageList rowHeight={180} className={classes.imageList} style={{ overflowX: 'hidden'}}>
         <ImageListItem
           key="Subheader"
           cols={2}
