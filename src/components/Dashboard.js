@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import Orders from "./dashboardStuff/Orders";
+import UserItemsTable from "./dashboardStuff/userItemsTable";
 import { Button } from "@material-ui/core";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory, Link } from "react-router-dom";
@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard(props) {
-  const [error, setError] = useState("");
+  const [error, setError] = useState();
   const { currentUser, logout } = useAuth();
   const history = useHistory();
 
@@ -127,7 +127,7 @@ export default function Dashboard(props) {
   }
 
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -186,10 +186,10 @@ export default function Dashboard(props) {
                 </Button>
               </Paper>
             </Grid>
-            {/* Recent Orders */}
+            {/* Recent userItemsTable */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Orders items={props.items} setItems={props.setItems} />
+                <UserItemsTable items={props.items} setItems={props.setItems} />
               </Paper>
             </Grid>
           </Grid>

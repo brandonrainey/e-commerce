@@ -1,10 +1,10 @@
-import { React, useState, useEffect } from "react";
+import  React, { useState, useEffect } from "react";
 import "./App.css";
 import { Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import PrimarySearchAppBar from "./components/appBar";
 import { Typography } from "@material-ui/core";
-import TitlebarImageList from "./components/titlebarImageList";
+import GpuPage from "./components/GpuPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./components/homePage";
 import Cart from "./components/cart";
@@ -17,7 +17,7 @@ import Gcard5 from "./components/gcard5.png";
 import Gcard6 from "./components/gcard6.png";
 import Gcard7 from "./components/gcard7.png";
 import Gcard8 from "./components/gcard8.png";
-import Cpu1 from "./components/cpu1.png";
+import Cpu1 from "./images/cpu1.png";
 import Cpu2 from "./components/cpu2.png";
 import Cpu3 from "./components/cpu3.png";
 import Cpu4 from "./components/cpu4.png";
@@ -429,7 +429,7 @@ function App() {
               exact
               path="/shop"
               render={(props) => (
-                <TitlebarImageList
+                <GpuPage
                   {...props}
                   count1={count1}
                   setCount1={setCount1}

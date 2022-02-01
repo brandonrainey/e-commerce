@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import React,{  useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
@@ -116,6 +116,7 @@ export default function UserItems(props) {
               boxShadow:
                 "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
             }}
+            key={index}
           >
             <CardActionArea>
               <CardMedia

@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import React,{  useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";

@@ -1,10 +1,10 @@
-import { React, useState, useEffect, useRef } from "react";
+import React,{  useState, useEffect, useRef } from "react";
 import IconButton from "@material-ui/core/IconButton";
-import { GridList, GridListTile, GridListTileBar } from "@material-ui/core";
+import { GridList, GridListTile, ImageListItemBar } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import HomeImg1 from "./homeImg1.png";
-import HomeImg3 from "./homeImg3.png";
-import Cpu1 from "./cpu1.png";
+import HomeImg1 from "../images/homeImg1.png"
+import HomeImg3 from "../images/homeImg3.png";
+import Cpu1 from "../images/cpu1.png";
 import { v4 as uuidv4 } from "uuid";
 
 const imgData = [
@@ -79,7 +79,7 @@ export default function HomePage() {
               ref={fadeImg}
               key={uuidv4()}
             />
-            <GridListTileBar
+            <ImageListItemBar
               title={item.title[imgNum]}
               actionIcon={
                 <IconButton>
