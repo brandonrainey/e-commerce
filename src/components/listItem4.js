@@ -3,7 +3,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { Button } from "@material-ui/core";
-import Gcard4 from "./gcard4.png";
+import Gcard4 from "../images/gcard4.png";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({

@@ -21,7 +21,7 @@ import CpuItem8 from "./cpuItem8";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { Button } from "@material-ui/core";
-import Placeholder from "./placeholder.png";
+import Placeholder from "../images/placeholder.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {

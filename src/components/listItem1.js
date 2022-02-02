@@ -4,7 +4,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Gcard1 from "./gcard1.png";
+import Gcard1 from "../images/gcard1.png";
 
 const useStyles = makeStyles((theme) => ({
   icon: {

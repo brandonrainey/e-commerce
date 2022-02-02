@@ -9,7 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 
-import Cpu6 from "./cpu6.png";
+import Cpu6 from "../images/cpu6.png";
 
 import { makeStyles } from "@material-ui/core/styles";
 

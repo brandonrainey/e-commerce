@@ -7,7 +7,7 @@ import MuiDialogContent from "@material-ui/core/DialogContent";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import Gcard3 from "./gcard3.png";
+import Gcard3 from "../images/gcard3.png";
 import { makeStyles } from "@material-ui/core/styles";
 
 const styles = (theme) => ({

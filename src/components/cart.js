@@ -3,7 +3,7 @@ import CartItems from "./cartItems";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box } from "@material-ui/core";
-import Sad from "./sad.png";
+import emptyCart from "../images/emptyCart.png";
 
 export default function Cart(props) {
   const useStyles = makeStyles((theme) => ({
@@ -18,10 +18,10 @@ export default function Cart(props) {
     },
     box: {
       backgroundColor: "#d0dae8",
-      height: 200,
-      width: 300,
+      height: 263,
+      width: 500,
       marginTop: 10,
-      marginLeft: "42%",
+      marginLeft: "34%",
       fontSize: 26,
       textAlign: "center",
     },
@@ -136,8 +136,8 @@ export default function Cart(props) {
   } else
     return (
       <Box className={`${classes.box} emptyCart`}>
-        Your Cart Is Empty
-        <img src={Sad} className="sadImg" />
+        
+        <img src={emptyCart} className="sadImg" />
       </Box>
     );
 }

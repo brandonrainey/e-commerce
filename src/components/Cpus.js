@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imageList: {
     width: 1000,
-    height: 800,
+    height: '100%',
     backgroundColor: "#d0dae8",
     borderRadius: 12,
   },

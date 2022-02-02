@@ -7,7 +7,7 @@ import MuiDialogContent from "@material-ui/core/DialogContent";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import Cpu7 from "./cpu7.png";
+import Cpu7 from "../images/cpu7.png";
 import { makeStyles } from "@material-ui/core/styles";
 
 const styles = (theme) => ({

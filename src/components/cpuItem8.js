@@ -4,7 +4,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Cpu8 from "./cpu8.png";
+import Cpu8 from "../images/cpu8.png";
 
 const useStyles = makeStyles((theme) => ({
   icon: {

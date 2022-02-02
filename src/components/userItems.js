@@ -12,7 +12,7 @@ import UserSnackbar from "./userSnackbar";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { db } from "../firebase";
-import Placeholder from "./placeholder.png";
+import Placeholder from "../images/placeholder.png";
 import UserPopup from "./userPopup";
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imageList: {
     width: 1000,
-    height: 800,
+    height: '100%',
     backgroundColor: "#d0dae8",
     borderRadius: 12,
   },

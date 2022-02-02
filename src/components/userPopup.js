@@ -8,7 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Placeholder from "./placeholder.png";
+import Placeholder from "../images/placeholder.png";
 
 const styles = (theme) => ({
   root: {
