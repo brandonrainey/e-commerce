@@ -1,8 +1,8 @@
-import React,{  useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import { GridList, GridListTile, ImageListItemBar } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import HomeImg1 from "../images/homeImg1.png"
+import HomeImg1 from "../images/homeImg1.png";
 import HomeImg3 from "../images/homeImg3.png";
 import Cpu1 from "../images/cpu1.png";
 import { v4 as uuidv4 } from "uuid";
@@ -45,18 +45,18 @@ export default function HomePage() {
     setActive(!isActive);
   };
 
-   useEffect(() => {
-     const interval = setInterval(() => {
+  useEffect(() => {
+    const interval = setInterval(() => {
       if (imgNum === 2) {
-         setImgNum(0);
-       } else if (imgNum === 0) {
-         setImgNum(1);
-       } else if (imgNum === 1) {
-         setImgNum(2);
-       }
-     }, 8000);
+        setImgNum(0);
+      } else if (imgNum === 0) {
+        setImgNum(1);
+      } else if (imgNum === 1) {
+        setImgNum(2);
+      }
+    }, 8000);
 
-     handleToggle();
+    handleToggle();
 
     return () => clearInterval(interval);
   }, [imgNum]);
@@ -66,12 +66,16 @@ export default function HomePage() {
       <GridList
         cellHeight={350}
         cols={2}
-        style={{ width: 1200, height: 850, padding: 0}}
+        style={{ width: 1200, height: 850, padding: 0 }}
         spacing={75}
-        className='gridList'
+        className="gridList"
       >
         {imgData.map((item, index) => (
-          <GridListTile key={item.id} cols={item.cols || 1} className='homeCard'>
+          <GridListTile
+            key={item.id}
+            cols={item.cols || 1}
+            className="homeCard"
+          >
             <img
               src={item.img1[imgNum]}
               alt={item.title}

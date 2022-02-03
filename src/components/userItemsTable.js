@@ -8,7 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Title from "./Title";
 import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 

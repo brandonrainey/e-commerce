@@ -1,4 +1,4 @@
-import React,{  useState } from "react";
+import React, { useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -7,7 +7,7 @@ import MuiDialogContent from "@material-ui/core/DialogContent";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import Gcard1 from "../images/gcard1.png";
+import Cpu1 from "../images/cpu1.png";
 import { makeStyles } from "@material-ui/core/styles";
 
 const styles = (theme) => ({
@@ -22,6 +22,13 @@ const styles = (theme) => ({
     color: theme.palette.grey[500],
   },
 });
+
+const useStyles = makeStyles((theme) => ({
+  img: {
+    height: 300,
+    width: 500,
+  },
+}));
 
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
@@ -47,14 +54,7 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-const useStyles = makeStyles((theme) => ({
-  img: {
-    height: 300,
-    width: 500,
-  },
-}));
-
-export default function Card1Popup(props) {
+export default function Cpu1Popup(props) {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -67,7 +67,7 @@ export default function Card1Popup(props) {
   };
 
   return (
-    <div className="learnMore">
+    <div>
       <Button size="small" color="primary" onClick={handleClickOpen}>
         Learn More
       </Button>
@@ -77,9 +77,9 @@ export default function Card1Popup(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Cool Card Uno
+          Card1
           <br></br>
-          <img src={Gcard1} className={`${classes.img} popupImg`} alt="" />
+          <img src={Cpu1} className={`${classes.img} popupImg`} alt="" />
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>

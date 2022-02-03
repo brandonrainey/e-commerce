@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import UserItemsTable from "./dashboardStuff/userItemsTable";
+import UserItemsTable from "./userItemsTable";
 import { Button } from "@material-ui/core";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory, Link } from "react-router-dom";
@@ -127,7 +127,6 @@ export default function Dashboard(props) {
   }
 
   const classes = useStyles();
-  
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 

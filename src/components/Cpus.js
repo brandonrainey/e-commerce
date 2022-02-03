@@ -1,4 +1,4 @@
-import React,{  useEffect } from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
@@ -8,7 +8,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import SimpleSnackbar from "./mysnackbar";
+import SimpleSnackbar from "./AddCpu";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imageList: {
     width: 1000,
-    height: '100%',
+    height: "100%",
     backgroundColor: "#d0dae8",
     borderRadius: 12,
   },
@@ -70,7 +70,7 @@ export default function Cpus(props) {
       <ImageList
         rowHeight={180}
         className={classes.imageList}
-        style={{ justifyContent: "center" , overflowX: 'hidden'}}
+        style={{ justifyContent: "center", overflowX: "hidden" }}
       >
         <ImageListItem
           key="Subheader"
@@ -126,7 +126,8 @@ export default function Cpus(props) {
                   style={{ borderBottom: "1px solid black" }}
                   className={"itemText"}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </Typography>
               </CardContent>
             </CardActionArea>

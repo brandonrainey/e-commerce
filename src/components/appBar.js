@@ -1,4 +1,4 @@
-import React,{  useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -115,7 +115,7 @@ export default function SearchAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" className='appBar'>
+      <AppBar position="static" className="appBar">
         <Toolbar>
           <IconButton
             ref={anchorRef}
@@ -137,7 +137,7 @@ export default function SearchAppBar(props) {
             anchorEl={anchorRef}
             anchorPosition={{ left: 600, top: 200 }}
             style={{ width: 200, marginTop: 56 }}
-            className='tester'
+            className="tester"
           >
             {({ TransitionProps, placement }) => (
               <Grow

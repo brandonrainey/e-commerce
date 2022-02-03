@@ -1,4 +1,4 @@
-import React,{  useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CartItems from "./cartItems";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -136,7 +136,6 @@ export default function Cart(props) {
   } else
     return (
       <Box className={`${classes.box} emptyCart`}>
-        
         <img src={emptyCart} className="sadImg" />
       </Box>
     );
