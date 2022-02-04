@@ -147,7 +147,9 @@ export default function Dashboard(props) {
             >
               <Paper style={{ width: "100%", flexDirection: "row" }}>
                 <Typography variant="h3" align="center" className="userEmail">
-                  {currentUser.email}'s Dashboard
+                  Logged in as <br/>
+                  {currentUser.email}
+                  
                 </Typography>
               </Paper>
             </Grid>

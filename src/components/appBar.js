@@ -163,12 +163,12 @@ export default function SearchAppBar(props) {
                       </Link>
                       <Link to="/shop">
                         <MenuItem onClick={handleClose} className="links">
-                          Cards
+                          Graphics Cards
                         </MenuItem>
                       </Link>
                       <Link to="/cpu">
                         <MenuItem onClick={handleClose} className="links">
-                          Cpu's
+                          Cpus
                         </MenuItem>
                       </Link>
                       <Link to="/useritems">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CartItems from "./cartItems";
+import CartItems from "./CartItems";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box } from "@material-ui/core";
