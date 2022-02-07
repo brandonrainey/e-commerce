@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
 html,
 :root {
   background-color: #1e395f;
@@ -5,6 +8,11 @@ html,
   padding: 0;
   height: 100%;
   overflow-x: hidden !important;
+}
+
+.siteName {
+  font-family: 'Oswald' !important;
+  letter-spacing: 1rem !important;
 }
 
 .MuiImageListItem-item {
