@@ -6,7 +6,7 @@ import PrimarySearchAppBar from "./components/appBar";
 import { Typography } from "@material-ui/core";
 import GpuPage from "./components/GpuPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import HomePage from "./components/HomePage";
+
 import Cart from "./components/Cart";
 import Cpus from "./components/Cpus";
 import Gcard1 from "./images/gcard1.png";
@@ -53,6 +53,7 @@ import UserItems from "./components/UserItems";
 import UpdateProfile from "./components/UpdateProfile";
 import { db } from "./firebase";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import HomePage from "./components/HomePage";
 
 const useStyles = makeStyles({
   box: {
