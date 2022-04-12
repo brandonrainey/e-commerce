@@ -480,7 +480,7 @@ function App() {
                   setCount8={setCount8}
                   countArray={countArray}
                   setCountArray={setCountArray}
-                  countTotal={countTotal}
+                  
                   countCpu1={countCpu1}
                   setCountCpu1={setCountCpu1}
                   countCpu2={countCpu2}
@@ -502,6 +502,7 @@ function App() {
                   countUser={countUser}
                   setCountUser={setCountUser}
                   items={items}
+                  
                 />
               )}
             />
