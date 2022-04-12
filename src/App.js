@@ -48,14 +48,16 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import ForgotPassword from "./components/ForgotPassword";
-import CreateItem from "./components/CreateItem";
-import UserItems from "./components/UserItems";
-import UpdateProfile from "./components/UpdateProfile";
+
 import { db } from "./firebase";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import HomePage from "./components/HomePage";
 import Cart from "./components/Cart";
 import Cpus from "./components/Cpus";
+import CreateItem from "./components/CreateItem";
+import UserItems from "./components/UserItems";
+import UpdateProfile from "./components/UpdateProfile";
+
 
 const useStyles = makeStyles({
   box: {
