@@ -1,8 +1,6 @@
 import  React, { useState, useEffect } from "react";
 import "./App.css";
-import HomePage from "./components/HomePage";
-import Cart from "./components/Cart";
-import Cpus from "./components/Cpus";
+
 import { Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import PrimarySearchAppBar from "./components/appBar";
@@ -55,7 +53,9 @@ import UserItems from "./components/UserItems";
 import UpdateProfile from "./components/UpdateProfile";
 import { db } from "./firebase";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-
+import HomePage from "./components/HomePage";
+import Cart from "./components/Cart";
+import Cpus from "./components/Cpus";
 
 const useStyles = makeStyles({
   box: {
