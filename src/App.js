@@ -51,6 +51,8 @@ import ForgotPassword from "./components/ForgotPassword";
 
 import { db } from "./firebase";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+
+
 import HomePage from "./components/HomePage";
 import Cart from "./components/Cart";
 import Cpus from "./components/Cpus";
