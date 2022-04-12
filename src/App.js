@@ -1,5 +1,8 @@
 import  React, { useState, useEffect } from "react";
 import "./App.css";
+import HomePage from "./components/HomePage";
+import Cart from "./components/Cart";
+import Cpus from "./components/Cpus";
 import { Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import PrimarySearchAppBar from "./components/appBar";
@@ -7,8 +10,7 @@ import { Typography } from "@material-ui/core";
 import GpuPage from "./components/GpuPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Cart from "./components/Cart";
-import Cpus from "./components/Cpus";
+
 import Gcard1 from "./images/gcard1.png";
 import Gcard2 from "./images/gcard2.png";
 import Gcard3 from "./images/gcard3.png";
@@ -53,7 +55,7 @@ import UserItems from "./components/UserItems";
 import UpdateProfile from "./components/UpdateProfile";
 import { db } from "./firebase";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import HomePage from "./components/HomePage";
+
 
 const useStyles = makeStyles({
   box: {
