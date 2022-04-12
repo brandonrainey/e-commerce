@@ -54,11 +54,11 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 
 import HomePage from "./components/MainPage";
-import Cart from "./components/Cart";
-import Cpus from "./components/Cpus";
-import CreateItem from "./components/CreateItem";
-import UserItems from "./components/UserItems";
-import UpdateProfile from "./components/UpdateProfile";
+import Cart from "./components/CartPage";
+import Cpus from "./components/CpusPage";
+import CreateItem from "./components/CreateItemPage";
+import UserItems from "./components/UserItemsPage";
+import UpdateProfile from "./components/UpdateProfilePage";
 
 
 const useStyles = makeStyles({
