@@ -53,7 +53,7 @@ import { db } from "./firebase";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 
-import HomePage from "./components/HomePage";
+import HomePage from "./components/MainPage";
 import Cart from "./components/Cart";
 import Cpus from "./components/Cpus";
 import CreateItem from "./components/CreateItem";
