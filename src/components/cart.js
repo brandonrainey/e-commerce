@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import CartItems from "./CartItems";
-import { Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { Box } from "@material-ui/core";
-import emptyCart from "../images/emptyCart.png";
+import React, { useState, useEffect } from 'react'
+import CartItems from './CartItems'
+import { Button } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import { Box } from '@material-ui/core'
+import emptyCart from '../images/emptyCart.png'
 
 export default function Cart(props) {
   const useStyles = makeStyles((theme) => ({
@@ -17,30 +17,29 @@ export default function Cart(props) {
       paddingBottom: 0,
     },
     box: {
-      backgroundColor: "#d0dae8",
+      justifyContent: 'center',
       height: 263,
-      width: 500,
-      marginTop: 10,
-      marginLeft: "34%",
+      width: '100%',
+      marginTop: 50,
       fontSize: 26,
-      textAlign: "center",
+      textAlign: 'center',
     },
     cartColor: {
-      backgroundColor: "#d0dae8",
+      backgroundColor: '#d0dae8',
     },
-  }));
+  }))
 
-  const classes = useStyles();
+  const classes = useStyles()
 
   const [cardPrices, setCardPrices] = useState([
     100, 45, 78, 98, 300, 222, 443, 420,
-  ]);
+  ])
 
   const [cpuPrices, setCpuPrices] = useState([
     33, 600, 42, 150, 188, 239, 511, 375,
-  ]);
+  ])
 
-  const [userPrice, setUserPrice] = useState(0);
+  const [userPrice, setUserPrice] = useState(0)
 
   function addUserTotal() {
     setUserPrice(() =>
@@ -48,7 +47,7 @@ export default function Cart(props) {
         (sum, item, index) => (sum = sum + item.price * props.countUser[index]),
         0
       )
-    );
+    )
   }
 
   const sumTotal =
@@ -68,11 +67,11 @@ export default function Cart(props) {
     props.countCpu6 * cpuPrices[5] +
     props.countCpu7 * cpuPrices[6] +
     props.countCpu8 * cpuPrices[7] +
-    userPrice;
+    userPrice
 
   useEffect(() => {
-    addUserTotal();
-  }, [props.countUser]);
+    addUserTotal()
+  }, [props.countUser])
 
   if (props.countTotal > 0) {
     return (
@@ -132,11 +131,11 @@ export default function Cart(props) {
           </div>
         </div>
       </div>
-    );
+    )
   } else
     return (
       <Box className={`${classes.box} emptyCart`}>
         <img src={emptyCart} className="sadImg" />
       </Box>
-    );
+    )
 }

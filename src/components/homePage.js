@@ -66,8 +66,8 @@ export default function HomePage() {
       <GridList
         cellHeight={350}
         cols={2}
-        style={{ width: 1200, height: 850, padding: 0 }}
-        spacing={75}
+        style={{ width: 1200, height: 800, padding: 0 }}
+        spacing={45}
         className="gridList"
       >
         {imgData.map((item, index) => (

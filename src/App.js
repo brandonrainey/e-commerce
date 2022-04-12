@@ -57,7 +57,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 const useStyles = makeStyles({
   box: {
     backgroundColor: "#d5f8ff",
-    height: "100px",
+    height: "120px",
     justifyContent: "center",
     textAlign: "center",
     fontWeight: "bold",

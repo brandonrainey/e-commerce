@@ -12,7 +12,7 @@ html,
 
 .siteName {
   font-family: 'Oswald' !important;
-  letter-spacing: 1rem !important;
+  letter-spacing: 0.5rem !important;
 }
 
 .MuiImageListItem-item {
@@ -266,7 +266,7 @@ a {
   .emptyCart {
     display: flex;
     flex-direction: column;
-    margin-left: 30px !important;
+    
     height: 100% !important;
     align-items: center !important;
   }
