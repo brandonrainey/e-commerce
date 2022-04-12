@@ -63,9 +63,11 @@ import UpdateProfile from "./components/UpdateProfilePage";
 
 const useStyles = makeStyles({
   box: {
+    display: 'flex',
     backgroundColor: "#d5f8ff",
     height: "120px",
     justifyContent: "center",
+    alignItems: 'center',
     textAlign: "center",
     fontWeight: "bold",
   },
@@ -359,7 +361,7 @@ function App() {
       <div className="full">
         <Box className={classes.box}>
           <Typography
-            variant={matches ? "h4" : "h1"}
+            variant={matches ? "h3" : "h1"}
             className="siteName"
             style={{ fontWeight: 400 }}
           >
