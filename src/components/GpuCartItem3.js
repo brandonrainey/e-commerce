@@ -35,19 +35,20 @@ export default function ListItem3(props) {
 
   if (props.count3 > 0) {
     return (
-      <ListItem className={classes.cartColor}>
+      <ListItem className={`${classes.cartColor} cartItem`}>
         <ListItemAvatar>
-          <img src={Gcard3} className={classes.icon} alt="" />
+          <img src={Gcard3} className={`${classes.icon} cartImg`} alt="" />
         </ListItemAvatar>
         <ListItemText
           primary={`Card3 x${props.count3}`}
-          secondary={`$${(78 * props.count3).toLocaleString()}`}
+          secondary={`$${(45 * props.count3).toLocaleString()}`}
           className={classes.text}
         />
         <Button
           variant="contained"
           color="secondary"
           onClick={() => props.setCount3(props.count3 - 1)}
+          className="cartButton"
         >
           Remove From Cart
         </Button>
@@ -55,3 +56,4 @@ export default function ListItem3(props) {
     );
   } else return null;
 }
+

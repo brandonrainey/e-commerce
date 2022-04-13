@@ -7,16 +7,6 @@ import Gcard2 from "../images/gcard2.png";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-    padding: 0,
-  },
-  nopad: {
-    paddingTop: 0,
-    paddingBottom: 0,
-  },
   icon: {
     height: 100,
     width: 150,
@@ -35,9 +25,9 @@ export default function ListItem2(props) {
 
   if (props.count2 > 0) {
     return (
-      <ListItem className={classes.cartColor}>
+      <ListItem className={`${classes.cartColor} cartItem`}>
         <ListItemAvatar>
-          <img src={Gcard2} className={classes.icon} alt="" />
+          <img src={Gcard2} className={`${classes.icon} cartImg`} alt="" />
         </ListItemAvatar>
         <ListItemText
           primary={`Card2 x${props.count2}`}
@@ -48,6 +38,7 @@ export default function ListItem2(props) {
           variant="contained"
           color="secondary"
           onClick={() => props.setCount2(props.count2 - 1)}
+          className="cartButton"
         >
           Remove From Cart
         </Button>

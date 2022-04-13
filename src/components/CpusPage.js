@@ -10,6 +10,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import SimpleSnackbar from "./AddCpu";
 
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -65,6 +67,8 @@ export default function Cpus(props) {
     props.countCpu8,
   ]);
 
+  const matches = useMediaQuery("(max-width: 480px)");
+
   return (
     <div className={classes.root}>
       <ImageList
@@ -79,7 +83,7 @@ export default function Cpus(props) {
         >
           <Typography
             style={{
-              fontSize: 50,
+              fontSize: matches ? 35 : 50,
               textAlign: "center",
               width: 500,
               marginLeft: 195,

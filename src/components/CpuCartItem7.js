@@ -25,19 +25,20 @@ export default function ListItem7(props) {
 
   if (props.countCpu7 > 0) {
     return (
-      <ListItem className={classes.cartColor}>
+      <ListItem className={`${classes.cartColor} cartItem`}>
         <ListItemAvatar>
-          <img src={Cpu7} className={classes.icon} alt="" />
+          <img src={Cpu7} className={`${classes.icon} cartImg`} alt="" />
         </ListItemAvatar>
         <ListItemText
           primary={`Cpu7 x${props.countCpu7}`}
-          secondary={`$${(511 * props.countCpu7).toLocaleString()}`}
+          secondary={`$${(33 * props.countCpu7).toLocaleString()}`}
           className={classes.text}
         />
         <Button
           variant="contained"
           color="secondary"
           onClick={() => props.setCountCpu7(props.countCpu7 - 1)}
+          className="cartButton"
         >
           Remove From Cart
         </Button>

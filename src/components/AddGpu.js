@@ -63,6 +63,7 @@ export default function SimpleSnackbarCards(props) {
         autoHideDuration={6000}
         onClose={handleClose}
         message={`${props.item.title} added to cart`}
+        style={{ zIndex: 10 }}
         action={
           <React.Fragment>
             <Button

@@ -25,9 +25,9 @@ export default function ListItem1(props) {
 
   if (props.countCpu1 > 0) {
     return (
-      <ListItem className={classes.cartColor}>
+      <ListItem className={`${classes.cartColor} cartItem`}>
         <ListItemAvatar>
-          <img src={Cpu1} className={classes.icon} alt="" />
+          <img src={Cpu1} className={`${classes.icon} cartImg`} alt="" />
         </ListItemAvatar>
         <ListItemText
           primary={`Cpu1 x${props.countCpu1}`}
@@ -38,6 +38,7 @@ export default function ListItem1(props) {
           variant="contained"
           color="secondary"
           onClick={() => props.setCountCpu1(props.countCpu1 - 1)}
+          className="cartButton"
         >
           Remove From Cart
         </Button>

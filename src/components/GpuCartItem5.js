@@ -25,19 +25,20 @@ export default function ListItem5(props) {
 
   if (props.count5 > 0) {
     return (
-      <ListItem className={classes.cartColor}>
+      <ListItem className={`${classes.cartColor} cartItem`}>
         <ListItemAvatar>
-          <img src={Gcard5} className={classes.icon} alt="" />
+          <img src={Gcard5} className={`${classes.icon} cartImg`} alt="" />
         </ListItemAvatar>
         <ListItemText
           primary={`Card5 x${props.count5}`}
-          secondary={`$${(300 * props.count5).toLocaleString()}`}
+          secondary={`$${(45 * props.count5).toLocaleString()}`}
           className={classes.text}
         />
         <Button
           variant="contained"
           color="secondary"
           onClick={() => props.setCount5(props.count5 - 1)}
+          className="cartButton"
         >
           Remove From Cart
         </Button>
@@ -45,3 +46,4 @@ export default function ListItem5(props) {
     );
   } else return null;
 }
+

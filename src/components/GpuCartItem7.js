@@ -25,19 +25,20 @@ export default function ListItem7(props) {
 
   if (props.count7 > 0) {
     return (
-      <ListItem className={classes.cartColor}>
+      <ListItem className={`${classes.cartColor} cartItem`}>
         <ListItemAvatar>
-          <img src={Gcard7} className={classes.icon} alt="" />
+          <img src={Gcard7} className={`${classes.icon} cartImg`} alt="" />
         </ListItemAvatar>
         <ListItemText
           primary={`Card7 x${props.count7}`}
-          secondary={`$${(443 * props.count7).toLocaleString()}`}
+          secondary={`$${(45 * props.count7).toLocaleString()}`}
           className={classes.text}
         />
         <Button
           variant="contained"
           color="secondary"
           onClick={() => props.setCount7(props.count7 - 1)}
+          className="cartButton"
         >
           Remove From Cart
         </Button>
@@ -45,3 +46,4 @@ export default function ListItem7(props) {
     );
   } else return null;
 }
+
