@@ -77,7 +77,7 @@ export default function Cpu2Popup(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Card5
+        Cell Maximum
           <br></br>
           <img src={Cpu5} className={`${classes.img} popupImg`} alt="" />
         </DialogTitle>

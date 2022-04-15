@@ -77,7 +77,7 @@ export default function Cpu2Popup(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Card7
+        WaveCoolerx12
           <br></br>
           <img src={Cpu7} className={`${classes.img} popupImg`} alt="" />
         </DialogTitle>

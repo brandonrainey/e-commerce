@@ -77,7 +77,7 @@ export default function Cpu1Popup(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Card1
+        Super Ultra 4000
           <br></br>
           <img src={Cpu1} className={`${classes.img} popupImg`} alt="" />
         </DialogTitle>

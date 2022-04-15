@@ -77,7 +77,7 @@ export default function Card1Popup(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Cool Card Uno
+        Hyper Drive Accelerator
           <br></br>
           <img src={Gcard6} className={`${classes.img} popupImg`} alt="" />
         </DialogTitle>

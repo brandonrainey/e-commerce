@@ -77,7 +77,7 @@ export default function Card1Popup(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Cool Card Uno
+        Overpriced Toaster
           <br></br>
           <img src={Gcard3} className={`${classes.img} popupImg`} alt="" />
         </DialogTitle>

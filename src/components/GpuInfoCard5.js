@@ -77,7 +77,7 @@ export default function Card1Popup(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Cool Card Uno
+        Turbo Engine Mini
           <br></br>
           <img src={Gcard5} className={`${classes.img} popupImg`} alt="" />
         </DialogTitle>
